@@ -45,16 +45,19 @@
             repo: 'https://github.com/YiDingg',
             // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
             loadSidebar: true,
+            // 左侧边栏最大支持渲染的标题层级
+            maxLevel: 1,    // 这里设置为0是为了防止与侧边栏折叠插件产生冲突(但好像仍然冲突?)
+            // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级
+            subMaxLevel: 0,
             // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
-            // set sidebar display level
-            sidebarDisplayLevel: 0,     
+            // 左侧边栏自动展开深度
+            sidebarDisplayLevel: 1,     
+            alias: {
+                '/.*/_sidebar.md': '/_sidebar.md',
+            },
             loadNavbar: true,
             // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
             coverpage: true,
-            // 左侧边栏最大支持渲染的标题层级
-            maxLevel: -1,    // 这里设置为0是为了防止与侧边栏折叠插件产生冲突
-            // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级
-            subMaxLevel: 0,
             // 小屏设备下合并导航栏到侧边栏
             mergeNavbar: true,
             // 在滚动到指定的锚点时，距离页面顶部有一定空间
