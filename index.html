@@ -27,9 +27,10 @@
     }
    </style>
 
-   
+<div id="gitalk-container"></div>
 </head>
 <body>
+  
    <!-- 定义加载时候的动作 -->
    <div id="app">loading...</div>
    <script>
@@ -114,7 +115,7 @@
      };
    
    </script>
-
+  
    <!-- 字数统计 -->
    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>  
 
@@ -157,7 +158,7 @@
   <!-- Link Gitalk 的支持文件  -->
   <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
   <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
-  <div id="gitalk-container"></div>     <script type="text/javascript">
+  <script type="text/javascript">
       var gitalk = new Gitalk({
 
       // gitalk的主要参数
@@ -171,6 +172,7 @@
       });
       gitalk.render('gitalk-container');
   </script> 
+  
   <!-- Gitalk end -->
   
   
