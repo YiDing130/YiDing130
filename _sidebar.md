@@ -1,6 +1,6 @@
 - [**Home Page**](/README.md)
 - **Blogs**
-  - [语法示例](Blogs/语法示例：.md)
+  - [语法示例](Blogs/语法示例.md)
   - C
     - [C语言系列汇总](Blogs/C/C语言系列汇总.md)
     - [C语言系列 (1)：内存与关键字](Blogs/C/C语言系列%20(1)：内存与关键字.md)
