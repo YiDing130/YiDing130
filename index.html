@@ -152,13 +152,29 @@
             },
 
             /* Gitalk评论 */
-            gitalk: {
+/*             gitalk: {
                 clientID: 'Ov23litwsqgUWqHQTZKn',
                 clientSecret:'32a84fada209ab08d4fe93b5b793de57c0703fb4',
                 repo:'Comment',  //存放评论的仓库
                 owner:'YiDingg',
                 admin:['YiDingg'],
-            }
+            } */
+
+            /* Giscus评论系统 */
+            giscus: {
+                repo: "YiDingg/Comment",
+                repoId: "R_kgDOMJOx-A",
+                category: "Announcements",
+                categoryId: "DIC_kwDOMJOx-M4CgFdB",
+                mapping: "url",
+                strict: "1",
+                reactionsEnabled: "1",
+                emitMetadata: "0",
+                inputPosition: "top",
+                theme: "light",
+                lang: "zh-CN",
+                loading: "lazy",
+            },
         }
         
     </script>
@@ -249,11 +265,14 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
     <script src="path-to-file/docsify-pdf-embed.js"></script>
     <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
-    <!-- Gitalk评论 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+    <!-- Gitalk评论(第n次尝试)(不行) -->
+<!--     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/docsify-gitalk@1.0.0/dist/docsify-gitalk.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-gitalk@1.0.0/dist/docsify-gitalk.min.js"></script> -->
+    <!-- Giscus评论系统 -->
+    <link rel="stylesheet" href="https://unpkg.com/docsify-giscus@1.0.2/dist/giscus.css">
+    <script src="https://unpkg.com/docsify-giscus@1.0.2/dist/docsify-giscus.min.js"></script>
 </body>
 
 </html>
