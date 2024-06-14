@@ -151,7 +151,14 @@
                 tag: 'rmd',
             },
 
-
+            /* Gitalk评论 */
+            gitalk: {
+                clientID: 'Ov23litwsqgUWqHQTZKn',
+                clientSecret:'32a84fada209ab08d4fe93b5b793de57c0703fb4',
+                repo:'Comment',  //存放评论的仓库
+                owner:'YiDingg',
+                admin:['YiDingg'],
+            }
         }
         
     </script>
@@ -198,8 +205,8 @@
         var _hmt = _hmt || [];
         (function() {
             var host = window.location.host;
-            if(host.startsWith("localhost") ||  host.startsWith("127.0.0.1")){
-                return ;
+            if(host.startsWith("localhost") ||  host.startsWith("10.204.57.207")){
+                return ; // 127.0.0.1
             }   // 过滤本地访问
             var hm = document.createElement("script");
             hm.src = "https://hm.baidu.com/hm.js?2ea53b153d591779d6f27a1290a5b823";
@@ -240,8 +247,13 @@
 <!--     <script src="//cdn. jsdelivr.net/npm/docsify-remote-markdown/dist/docsify-remote-markdown.min.js"></script> -->
     <!-- pdf内嵌显示 -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
-
+    <script src="path-to-file/docsify-pdf-embed.js"></script>
     <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
+    <!-- Gitalk评论 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script src="https://unpkg.com/docsify-gitalk@1.0.0/dist/docsify-gitalk.min.js"></script>
 </body>
 
 </html>
