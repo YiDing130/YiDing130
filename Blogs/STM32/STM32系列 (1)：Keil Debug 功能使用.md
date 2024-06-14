@@ -12,15 +12,18 @@
 | - | :-: | - |
 |1. 调整仿真设置| 在 "Option for Target" 中设置软件仿真（软件Debug）。图片左侧是纯软件仿真，右侧是硬件仿真（如ST-LINK Debug）。 | [![pkdTt7F.png](https://s21.ax1x.com/2024/06/14/pkdTt7F.png)](https://imgse.com/i/pkdTt7F) |
 |2. 查询单片机型号 | Dialog DLL和Parameter默认分别是DCM.DLL和-pCM3，该种配置无法进行正常的仿真调试，会导致程序一直在SystemInit()函数死循环。因此需要根据单片机型号输入对应的Dialog DLL和Parameter。参照下图，输入单片机型号进行搜索，搜索的结果便是需要填入的参数。 |[![pkdT360.png](https://s21.ax1x.com/2024/06/14/pkdT360.png)](https://imgse.com/i/pkdT360)  [![pkdTJmT.png](https://s21.ax1x.com/2024/06/14/pkdTJmT.png)](https://imgse.com/i/pkdTJmT)|
-|3. 填写型号对应文件 | 这里我使用的是STM32C8T6，于是应填Dialog DLL：DARMSTM.DLL，Parameter：-pSTM32F103C8。最后点击 "Debug" 按键开始调试。 |![image](/static/uploads/2024/5/28/54a04b6dcda98a05d17b89a4182b21dd.png) |
+|3. 填写型号对应文件 | 这里我使用的是STM32C8T6，于是应填Dialog DLL：DARMSTM.DLL，Parameter：-pSTM32F103C8。最后点击 "Debug" 按键开始调试。 |[![pkdOh9g.png](https://s21.ax1x.com/2024/06/14/pkdOh9g.png)](https://imgse.com/i/pkdOh9g)|
 
 
 
 ## 二、各按键功能
 软件仿真的所有按键如下图所示（图中罗马数字1表示序号11，罗马2表示12，以此类推）：
-![image](/static/uploads/2024/5/28/3859bd1aab3f460cb956ed4489bf1aee.png)
+<a href="https://imgse.com/i/pkdOzv9"><img src="https://s21.ax1x.com/2024/06/14/pkdOzv9.png" alt="pkdOzv9.png" border="0" /></a>
 
 除执行语句按键外，我们先单独列出经常使用的按键：
+
+<div class="center">
+
 | 按键序号 | 功能 | 详细 | 
 | :------ | :------ | :------ | 
 | 12. Registers Window | 寄存器窗口 | 此窗口"Interval"下的"Sec"会显示总运行时间，可以前后对比读出语句所需时间，较为常用 | 
@@ -29,9 +32,14 @@
 | 16. Serial Window | 串行窗口 | 显示串口(UART)打印信息；提供4个串口打印窗口，用来显示从串口UART打印出来的内容；在窗口内右键可以调整数据形式（字符串、十进制、十六进制） |
 | 17. System Analyzer Window | 系统分析仪 | 含多个窗口，包括逻辑分析仪、性能分析仪、代码覆盖率、系统分析仪、系统和线程查看器、组件查看器等 |
 | 19. System Viewer Windows | 系统查看器 | 可查看单片机内部外设（如ADC、GPIO、DMA）的寄存器值 |
+</div>
+
 
 
 下面是所有按键的功能汇总：
+
+<div class="center">
+
 | 按键序号 | 功能 | 详细 |
 | :------ | :------ | :------ |
 | 1. RST | 复位 | 作用相当于硬件上触发了一次复位，但点击RST之后，你可以看到复位时单片机究竟执行了哪些语句 |
@@ -54,11 +62,12 @@
 | 18. Trace Window | 跟踪窗口 | 不常用 |
 | 19. System Viewer Windows | 系统查看器 | 可查看单片机内部外设（如ADC、GPIO、DMA）的寄存器值 |
 | 20. Toolbox | 工具箱 | 不常用 |
+</div>
 
 ## 三、仿真逻辑分析仪
 
 Keil仿真逻辑分析仪不仅可以查看引脚电平，还能查看全局变量的值、虚拟仿真寄存器（Virtual Simulation Registers, VTREGs）等。下面是官方对其功能范围的描述，以及查看形式设置：
-![image](/static/uploads/2024/5/30/fe8e82b5f4e37df196d4b203621bd858.png)![image](/static/uploads/2024/5/30/0b4657f643a8ead0455413cd8da013f1.png)
+<a href="https://imgse.com/i/pkdjuz4"><img src="https://s21.ax1x.com/2024/06/15/pkdjuz4.png" alt="pkdjuz4.png" border="0" /><img src="https://s21.ax1x.com/2024/06/15/pkdjMQJ.png" alt="pkdjMQJ.png" border="0" /></a>
 
 作为示例，我们仿真运行GPIO_C13电平翻转的程序，在仿真逻辑分析仪中观察电平高低和指定变量的值。
 
@@ -78,18 +87,22 @@ Keil仿真逻辑分析仪不仅可以查看引脚电平，还能查看全局变�
   }
   /* USER CODE END 3 */
 ```
+
+<div class="center">
+
 | 步骤 |详细 | 图片 | 
 | ------ | :------: |:------: |
 | 1. CubeMX配置引脚 | 配置GPIO_C13引脚为Output PP 模式 | 无 |
-| 2.  打开仿真 | 在刚打开仿真时，程序自动运行到 main() 函数开头并停止，此时我们的变量 Count 还未初始化，需要初始化后才能添加到 Logic Analyzer 中，因此我们在 "uint16_t Count;" 语句后设置断点，并点击 Run(F5)，使程序运行到我们的断点处停止。 | ![image](/static/uploads/2024/5/30/d521ecadfb4b1e8b0469685b6395d837.png) |
-| 3. 打开 Logic Analyzer 添加引脚，然后右键设置显示方式| 在逻辑分析仪中添加引脚PC13，下面几种输入等价： | ![image](/static/uploads/2024/5/30/38b6bb0a88d7c43a3214b218d7f44306.png)![image](/static/uploads/2024/5/30/6cffd4772360a7c515eb4e6835a94659.png)![image](/static/uploads/2024/5/30/e21500314f5788523cb16c2a1a6bd72a.png)|
-| 4. 添加变量，设置显示方式 | 在程序中找到变量Count，右键并添加到 Logic Analyzer ，然后右键调整显示方式为Analog+Adaptive。如果报错添加失败，关闭仿真再打开，重新配置即可。 |![image](/static/uploads/2024/5/30/862c864b620443a0d874842b28e089f3.png)|
-| 5. 运行并观察 | 可以看到，电平翻转间隔（延时）为 0.1012s=101.2ms 正常，变量自增也正常  |![image](/static/uploads/2024/5/30/8c694ecd19c3ee534a2f58cacf47bd0f.png)![image](/static/uploads/2024/5/30/1db5d4d88053680e2dec65fb9c67760d.png)|
+| 2.  打开仿真 | 在刚打开仿真时，程序自动运行到 main() 函数开头并停止，此时我们的变量 Count 还未初始化，需要初始化后才能添加到 Logic Analyzer 中，因此我们在 "uint16_t Count;" 语句后设置断点，并点击 Run(F5)，使程序运行到我们的断点处停止。 | [![pkdjlLR.png](https://s21.ax1x.com/2024/06/15/pkdjlLR.png)](https://imgse.com/i/pkdjlLR)|
+| 3. 打开 Logic Analyzer 添加引脚，然后右键设置显示方式| 在逻辑分析仪中添加引脚PC13，下面几种输入等价： | [![pkdj3e1.png](https://s21.ax1x.com/2024/06/15/pkdj3e1.png)](https://imgse.com/i/pkdj3e1)[![pkdj8dx.png](https://s21.ax1x.com/2024/06/15/pkdj8dx.png)](https://imgse.com/i/pkdj8dx)[![pkdjGo6.png](https://s21.ax1x.com/2024/06/15/pkdjGo6.png)](https://imgse.com/i/pkdjGo6)|
+| 4. 添加变量，设置显示方式 | 在程序中找到变量Count，右键并添加到 Logic Analyzer ，然后右键调整显示方式为Analog+Adaptive。如果报错添加失败，关闭仿真再打开，重新配置即可。 |![d35692acbe4130ae7b88177d972db1ab.png](https://i3.mjj.rip/2024/06/15/d35692acbe4130ae7b88177d972db1ab.png)|
+| 5. 运行并观察 | 可以看到，电平翻转间隔（延时）为 0.1012s=101.2ms 正常，变量自增也正常  |![2876ecc475fb0fcb47167b9c54e685c7.png](https://i3.mjj.rip/2024/06/15/2876ecc475fb0fcb47167b9c54e685c7.png)![2e6fcfdb4967f5953c6374fb925da75b.png](https://i3.mjj.rip/2024/06/15/2e6fcfdb4967f5953c6374fb925da75b.png)|
+</div>
 
 !!#ff0000 注意：在打开仿真之前，如果程序被修改，需要重新编译再打开仿真。!!这是因此仿真使用到了编译产生的相关文件，仅保存程序未重新编译时，仿真仍使用之前编译得到的文件。另外，程序里定义Count变量时，之所以使用static关键字，是因为非全局变量（如某函数中创建的变量）无法添加到逻辑分析仪，详见上面官方对其功能范围的说明。
 
 特别地，图中问号点击可以跳转至官方帮助文档：
-![image](/static/uploads/2024/5/30/b63f809732d5c81f92b4a2f0397982ff.png)
+<img src="https://i3.mjj.rip/2024/06/15/08f37e34717f8929d079ecf13b899209.png" alt="08f37e34717f8929d079ecf13b899209.png" border="0">
 
 ## 四、仿真外部按键
 

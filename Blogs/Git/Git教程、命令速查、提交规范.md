@@ -11,16 +11,31 @@ Git 目前有 Bash，GUI，CMD 三种使用使用环境。Bash 与Linux命令格
 
 ## 一、Git 使用教程
 在此之前，我们先介绍几个Windows命令行环境（Windows PowerShell）的指令。打开 Windows Powershell（也可以在VSCode中新建PowerShell中断）。
-+++- `pwd` (print work directory)：显示当前目录所在地址
-![image](/static/uploads/2024/6/6/8575e6edd1b33616b8f446f3615a00b4.png)
-++ `ls` (list files)：显示当前目录下的所有文件
-![image](/static/uploads/2024/6/6/b5939485d41401c1708cd60ec055b606.png)
 
-++ `cd` (change directory)：切换目录
+
+<details>
+<summary>pwd</summary>
+
+`pwd` (print work directory)：显示当前目录所在地址
+<img src="https://i3.mjj.rip/2024/06/15/9c8807848fa932eaa4bd76b900760af1.png" alt="9c8807848fa932eaa4bd76b900760af1.png" border="0">
+</details>
+
+
+<details>
+<summary>ls</summary>
+
+`ls` (list files)：显示当前目录下的所有文件
+![c1dbf864516b76153f271dde2cb4f9d9.png](https://i3.mjj.rip/2024/06/15/c1dbf864516b76153f271dde2cb4f9d9.png)
+</details>
+
+<details>
+<summary>cd</summary>
+
+`cd` (change directory)：切换目录
 后接 ".." 是返回上一级，后接文件名是进入下一级
-![image](/static/uploads/2024/6/6/7c7da1710ecbfcacdb6fbed2d7f438b3.png)![image](/static/uploads/2024/6/6/2afbb43eea58ba299e0db74db03b16a8.png)
+![eef5625f83ea6706446c15bc0dc6c61b.png](https://i3.mjj.rip/2024/06/15/eef5625f83ea6706446c15bc0dc6c61b.png)
+</details>
 
-+++
 
 ### 1. Git使用演示
 为了更好的演示效果，我们在桌面新建一个文件夹 Git_Test，在其中新建 test.tex 文件，并以此进行演示。![image](/static/uploads/2024/6/6/72af78cc78b98e8f0170678132d4c18b.png)
