@@ -10,9 +10,10 @@
 
 | 步骤 | 详解 |图片 |
 | - | :-: | - |
-|1. 调整仿真设置| 在 "Option for Target" 中设置软件仿真（软件Debug）。图片左侧是纯软件仿真，右侧是硬件仿真（如ST-LINK Debug）。 | ![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240614/161047522-1.png) |
-|2. 查询单片机型号 | Dialog DLL和Parameter默认分别是DCM.DLL和-pCM3，该种配置无法进行正常的仿真调试，会导致程序一直在SystemInit()函数死循环。因此需要根据单片机型号输入对应的Dialog DLL和Parameter。参照下图，输入单片机型号进行搜索，搜索的结果便是需要填入的参数。 | ![logo](https://docsify.js.org/_media/icon.svg ':size=10%')![alt text](image.png)![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240614/161146551-1.png) |
+|1. 调整仿真设置| 在 "Option for Target" 中设置软件仿真（软件Debug）。图片左侧是纯软件仿真，右侧是硬件仿真（如ST-LINK Debug）。 | [![pkdTt7F.png](https://s21.ax1x.com/2024/06/14/pkdTt7F.png)](https://imgse.com/i/pkdTt7F) |
+|2. 查询单片机型号 | Dialog DLL和Parameter默认分别是DCM.DLL和-pCM3，该种配置无法进行正常的仿真调试，会导致程序一直在SystemInit()函数死循环。因此需要根据单片机型号输入对应的Dialog DLL和Parameter。参照下图，输入单片机型号进行搜索，搜索的结果便是需要填入的参数。 |[![pkdT360.png](https://s21.ax1x.com/2024/06/14/pkdT360.png)](https://imgse.com/i/pkdT360)  [![pkdTJmT.png](https://s21.ax1x.com/2024/06/14/pkdTJmT.png)](https://imgse.com/i/pkdTJmT)|
 |3. 填写型号对应文件 | 这里我使用的是STM32C8T6，于是应填Dialog DLL：DARMSTM.DLL，Parameter：-pSTM32F103C8。最后点击 "Debug" 按键开始调试。 |![image](/static/uploads/2024/5/28/54a04b6dcda98a05d17b89a4182b21dd.png) |
+
 
 
 ## 二、各按键功能
