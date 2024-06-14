@@ -30,7 +30,8 @@
 <body>
     <!-- 定义加载时候的动作 -->
     <div id="app">加载中...</div>
-    <div id="gitalk-container"></div>
+    <!-- Gitalk评论 -->
+    <!-- <div id="gitalk-container"></div> -->
     <script>
         window.$docsify = {
             // 项目名称
@@ -144,6 +145,13 @@
             plantuml: {
                 skin:'default'
             },
+
+            /* md远程导入插件 */
+            remoteMarkdown: {
+                tag: 'rmd',
+            },
+
+
         }
         
     </script>
@@ -204,8 +212,8 @@
     <!-- 页面右侧TOC -->
     <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
     <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
-    <!-- 集成Gittalk评论 -->
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+    <!-- 集成GitTalk评论(暂无法使用) -->
+<!--     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
     <script>
@@ -219,8 +227,21 @@
             id:decodeURI(window.location.pathname)
         });
         gitalk.render('gitalk-container')
-    </script>
-    
+    </script> -->
+    <!-- 手风琴插件(不行) -->
+<!--     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-accordion/src/style.css">
+    <script src="//cdn.jsdelivr.net/npm/docsify-accordion/src/index.js"></script> -->
+    <!-- html demo预览+代码库块复制(demo预不行?) -->
+<!--     <link rel="stylesheet" href="./css/html preview/index.min.css">
+    <script src="//cdn.jsdelivr.net/npm/docsify-demo@latest/dist/index.min.js"></script> -->
+    <!-- 中英文间自动加空格插件 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-pangu/lib/pangu.min.js"></script>
+    <!-- md远程导入插件(不行) -->
+<!--     <script src="//cdn. jsdelivr.net/npm/docsify-remote-markdown/dist/docsify-remote-markdown.min.js"></script> -->
+    <!-- pdf内嵌显示 -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/pdfobject/2.1.1/pdfobject.min.js"></script> 
+
+    <script src="//unpkg.com/docsify-pdf-embed-plugin/src/docsify-pdf-embed.js"></script>
 </body>
 
 </html>
