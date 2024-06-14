@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <!-- html settings -->
-   <meta charset="utf-8">
+   <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no, viewport-fit=cover">
    <meta name="description" content="">
 
-   <!-- 设置浏览器图标 -->
-   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-
-   <!-- 网页首标题 -->
-   <title>Yi Ding's Website</title>
-
+    <!-- 网页首标题 -->
+    <title>Yi Dings Website</title>
+    <!-- 设置浏览器图标 -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
    <!-- Themes -->
    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"/>
 
@@ -26,132 +25,202 @@
       /* --theme-color   : purple; */
     }
    </style>
-<div id="gitalk-container"></div>
 </head>
+
 <body>
-  
-   <!-- 定义加载时候的动作 -->
-   <div id="app">loading...</div>
-   <script>
-     // Docsify Configuration
-     window.$docsify = {
-      /* docsify 参数 */
-      
+    <!-- 定义加载时候的动作 -->
+    <div id="app">加载中...</div>
+    <div id="gitalk-container"></div>
+    <script>
+        window.$docsify = {
+            // 项目名称
+            name: "⭐Yi Ding's Website⭐",
+            // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址
+            repo: 'https://github.com/YiDingg',
+            // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
+            loadSidebar: true,
+            // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
+            // set sidebar display level
+            sidebarDisplayLevel: 0,     
+            loadNavbar: true,
+            // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
+            coverpage: true,
+            // 最大支持渲染的标题层级
+            maxLevel: 3,
+            // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级
+            subMaxLevel: 0,
+            // 小屏设备下合并导航栏到侧边栏
+            mergeNavbar: true,
+            // 在滚动到指定的锚点时，距离页面顶部有一定空间
 
-      /* 侧边栏/导航栏 */
-      loadSidebar: true,          // 启用侧边栏, _sidebar.md
-      sidebarDisplayLevel: 1, // set sidebar display level
-      alias: {
-        '/.*/_sidebar.md': '/_sidebar.md',
-      },
-      loadNavbar: true,           // 启用导航栏(页面右上角), _navbar.md
-      autoHeader: false,           // 自动生成页面标题
-      maxLevel: 3,
+            topMargin: 90,     
+            // 自定义notfound页面   
+            notFoundPage: 'my404.md',    
+            // 只在访问主页时加载封面      
+            onlyCover: false,   
+            // 主题颜色     
+            themeColor: '#3F51B5', 
+            // 侧边栏网页Logo        
+            //logo: 'logo.jpg',        
+            // 切换页面后自动跳转到页面顶部。 
+            auto2top: true,            
+            
+            /* 代码块复制 */
+            copyCode: {
+                buttonText: 'Copy to clipboard',
+                errorText: 'Error',
+                successText: 'Copied',
+            },
+            /* 搜索 */
+            search: {
+                maxAge: 86400000,// 过期时间，单位毫秒，默认一天
+                paths: 'auto',// 注意：仅适用于 paths: 'auto' 模式
+                placeholder: '搜索',              
+                // 支持本地化
+                placeholder: {
+                    '/zh-cn/': '搜索',
+                    '/': 'Type to search'
+                },
+                noData: '找不到结果',
+                depth: 4,
+                hideOtherSidebarContent: false,
+                namespace: 'Docsify-Guide',
+            },
 
+            /* 页面右侧 TOC */
+            toc: {
+                scope:'.markdown-section',
+                headings: "h2, h3, h4, h5, h6",
+                title: "目录"
+            },
 
-      auto2top: true,             // 切换页面后自动跳转到页面顶部。
-      coverpage: true,          // 启用封面页(对应 _coverpage.md 文件)
-      //logo: 'logo.jpg',         // 侧边栏网页Logo
-      themeColor: '#3F51B5',      // 主题颜色
-      mergeNavbar: true,          // 小屏设备下合并导航栏到侧边栏
-      onlyCover: false,           // 只在访问主页时加载封面   
-      notFoundPage: 'my404.md',   // 自定义notfound页面
-      topMargin: 90,              // 在滚动到指定的锚点时，距离页面顶部有一定空间
+            /* 字数统计 */
+            count: {
+                countable:  true,
+                position:   "top",
+                margin:     "10px",
+                float:      "right",
+                fontsize:   "0.9em",
+                color:      "gray",
+                language:   "chinese",
+                localization: {
+                    words: "",
+                    minute: "",
+                },
+                isExpected: true,
+            },
 
-      /* 字数统计 */
-      count: {
-          countable: true,
-          position: "top",
-          margin: "10px",
-          float: "right",
-          fontsize: "0.9em",
-          color: "gray",
-          language: "chinese",
-          localization: {
-            words: "",
-            minute: "",
-          },
-          isExpected: true,
-      },
+            /* tab选项卡 */
+            tabs: {
+                persist    : true,       //defult
+                sync       : true,       //defult
+                theme      : 'classic',  //defult
+                tabComments: true,       //defult
+                tabHeadings: true,       //defult
+            },
 
-      /* 评论系统 */
-      //disqus: 'shortname',
+            /* alerts提示 */
+            // note tip warning attention https://github.com/fzankl/docsify-plugin-flexible-alerts
+            'flexible-alerts':{
+                style: 'callout'
+            },
 
-      /* 页面右侧 TOC */
-      toc: {
-          tocMaxLevel: 2,
-          target: "h2, h3, h4, h5, h6",
-        },
+            /* 页面最近修改时间 */
+            timeUpdater:{
+                text: "<div align='right' width='100%' style='color:gray;font-size:12px;margin-top:50px;'> Last updated time: {docsify-updated}</div>",
+                formatUpdated:"  {YYYY}.{MM}.{DD} {HH}:{mm}",
+            },
 
-      /* markdown配置 */
-      markdown: {
-        renderer: {
-          code: function(code, lang) {         
-            if (lang === "tex") {
-              return (
-              '<span class="tex">'+ katex.renderToString(code, {
-                  throwOnError: false
-              })+'</span>'
-              );
-            return this.origin.code.apply(this, arguments);
-          }
-          }
-        },
-        link: function() {
-          // ...
+            /* 回到顶部 */
+            docsifyBackTop: {
+                size: 32,           // 组件大小，默认值32   
+                bottom: 15,         // 组件底部偏移距离，默认值15
+                right: 15,          // 数值，组件右侧偏移距离，默认值15。
+                logo:'top',          // logo:字符串或svg矢量图代码，默认为svg代码图标。
+                bgColor:'#42b983'   // 背景颜色，#fff、pink等，logo为svg图标时，不填。
+            },
+
+            /* plantuml画图集成 */
+            plantuml: {
+                skin:'default'
+            },
         }
-      },
-
-      /* 搜索 */
-      search: {
-          depth: 6,
-          noData: "no results...",
-          placeholder: "搜索...",
-          // 避免搜索索引冲突,同一域下的多个网站之间
-          namespace: "website-1",
-      },
-      
-     };
-   
-   </script>
-  
-   <!-- 字数统计 -->
-   <script src="//unpkg.com/docsify-count/dist/countable.js"></script>  
-
-   <!-- 代码高亮 -->
-   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-c.min.js"></script>
-   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-python.min.js"></script>
-   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-bash.min.js"></script>
-
-   <!-- 前后篇章/页面导航 -->
-   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-
-  <!-- 侧边栏目录折叠 -->
-  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> <!-- 主题(arrow) -->
-
-  <!-- 页面右侧 TOC -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify-plugin-toc@1.1.0/dist/docsify-plugin-toc.min.js"></script>
-
-  <!-- Required -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
-
-  <!-- Recommended -->
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/search.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4/lib/plugins/zoom-image.min.js"></script>
-
-  <!-- markdown配置 -->
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  <script>
-    document.getElementById('content').innerHTML =
-    marked.parse('# Marked in the browser\n\nRendered by **marked**.');
-  </script>
-  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
-  <script src="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
-
-  <!-- 支持Latex公式 -->
-  <link href="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.css" rel="stylesheet">
-  <script src="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.js"></script>
+        
+    </script>
+    <!-- docsify的js依赖 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+    <!-- emoji表情支持 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+    <!-- 图片放大缩小支持 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- 搜索功能支持 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+    <!-- 代码块复制 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+    <!-- 字数统计 -->
+    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>  
+    <!-- 前后篇章/页面导航 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+      <!-- 侧边栏目录折叠 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> <!-- 主题(arrow) -->
+    <!-- 代码高亮 -->
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-c.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/prismjs@1.22.0/components/prism-cpp.min.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-java.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-sql.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-bash.js"></script>
+    <script src="//unpkg.com/prismjs/components/prism-c.js"></script>
+    <script src="//unpkg.com/prismjs@1.23.0/components.js"></script>
+    <!--访问统计-->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <!-- tab选项卡 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+    <!-- alerts提示 -->
+    <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
+    <!-- 页面最近修改时间 -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-updated/src/time-updater.min.js"></script>
+    <!-- 进度条优化 -->
+    <!-- 感觉不太需要 -->
+    <!-- 回到顶部 -->
+    <script src="https://cdn.jsdelivr.net/gh/sumsung524/docsify-backTop/dist/docsify-backTop.min.js"></script>
+    <!-- 访问统计(需要百度统计获取ID) -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var host = window.location.host;
+            if(host.startsWith("localhost") ||  host.startsWith("127.0.0.1")){
+                return ;
+            }   // 过滤本地访问
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?2ea53b153d591779d6f27a1290a5b823";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <!-- plantuml画图集成 -->
+    <script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>
+    <!-- 页面右侧TOC -->
+    <link rel="stylesheet" href="https://unpkg.com/docsify-toc@1.0.0/dist/toc.css">
+    <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script>
+    <!-- 集成Gittalk评论 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css">
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: 'Ov23litwsqgUWqHQTZKn',
+            clientSecret:'32a84fada209ab08d4fe93b5b793de57c0703fb4',
+            repo:'Comment',  //存放评论的仓库
+            owner:'YiDingg',
+            admin:['YiDingg'],
+            distractionFreeMode:false,
+            id:decodeURI(window.location.pathname)
+        });
+        gitalk.render('gitalk-container')
+    </script>
+    
 </body>
+
 </html>

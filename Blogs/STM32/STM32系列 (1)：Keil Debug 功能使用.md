@@ -5,15 +5,13 @@
 本节目标：利用 Keil_MDK 进行软件Debug，如设置断点、查看寄存器值、查看引脚逻辑电平、设置按键功能等。
 系列汇总详见地址：[《📕STM32系列汇总》](https://www.writebug.com/article/a58f9888-1cba-11ef-8be7-0242c0a84016) 
 
-[TOC]
-
 ## 一、Keil 软件设置
 官方对 Keil Debug 功能的说明详见：[官方 Keil Debug 文档](https://developer.arm.com/documentation/101407/0540/Dialogs/Project/Options/Debug?lang=en) 。下面是实际的一些操作：
 
 | 步骤 | 详解 |图片 |
 | - | :-: | - |
-|1. 调整仿真设置| 在 "Option for Target" 中设置软件仿真（软件Debug）。图片左侧是纯软件仿真，右侧是硬件仿真（如ST-LINK Debug）。 | ![image](/static/uploads/2024/5/28/bf44f1ed34ba31bfaa078b753fe8c192.png) |
-|2. 查询单片机型号 | Dialog DLL和Parameter默认分别是DCM.DLL和-pCM3，该种配置无法进行正常的仿真调试，会导致程序一直在SystemInit()函数死循环。因此需要根据单片机型号输入对应的Dialog DLL和Parameter。参照下图，输入单片机型号进行搜索，搜索的结果便是需要填入的参数。 | ![image](/static/uploads/2024/5/28/6f8f95718b1aaef7184a7c2d30a6c012.png)![image](/static/uploads/2024/5/28/8dae768bbfe5512082ac3ccf9cddd688.png) |
+|1. 调整仿真设置| 在 "Option for Target" 中设置软件仿真（软件Debug）。图片左侧是纯软件仿真，右侧是硬件仿真（如ST-LINK Debug）。 | ![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240614/161047522-1.png) |
+|2. 查询单片机型号 | Dialog DLL和Parameter默认分别是DCM.DLL和-pCM3，该种配置无法进行正常的仿真调试，会导致程序一直在SystemInit()函数死循环。因此需要根据单片机型号输入对应的Dialog DLL和Parameter。参照下图，输入单片机型号进行搜索，搜索的结果便是需要填入的参数。 | ![logo](https://docsify.js.org/_media/icon.svg ':size=10%')![alt text](image.png)![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240614/161146551-1.png) |
 |3. 填写型号对应文件 | 这里我使用的是STM32C8T6，于是应填Dialog DLL：DARMSTM.DLL，Parameter：-pSTM32F103C8。最后点击 "Debug" 按键开始调试。 |![image](/static/uploads/2024/5/28/54a04b6dcda98a05d17b89a4182b21dd.png) |
 
 

@@ -1,13 +1,21 @@
-- [Home Page](/README.md)
-- Blogs
+- [**Home Page**](/README.md)
+- **Blogs**
+  - [语法示例](Blogs/语法示例：.md)
   - C
+    - [C语言系列汇总](Blogs/C/C语言系列汇总.md)
+    - [C语言系列 (1)：内存与关键字](Blogs/C/C语言系列%20(1)：内存与关键字.md)
+    - [C语言系列 (2)：printf()%20函数详解](Blogs/C/C语言系列%20(2)：printf()%20函数详解.md)
   - STM32
     - [STM32系列汇总](Blogs/STM32/STM32系列汇总.md)
-    - [STM32系列(1)：Keil Debug 功能使用](Blogs/STM32/STM32系列%20(1)：Keil%20Debug%20功能使用.md)
-    - [STM32系列(2)：]
+    - [STM32系列 (1)：Keil Debug 功能使用](Blogs/STM32/STM32系列%20(1)：Keil%20Debug%20功能使用.md)
+    - [STM32系列 (2)：]
     - [STM32系列 (3)：DMA的原理与用法](Blogs/STM32/STM32系列%20(3)：DMA的原理与用法.md)
     - [STM32系列 ()：实用技巧汇总](Blogs/STM32/STM32系列%20(14)：实用技巧汇总.md)
-    
-- Projects
-  - [Project1](Projects/Project1.md)
-  - [Project2](Projects/Project2.md)
+  - Git
+    - [Git教程、命令速查、提交规范](Blogs/Git/Git教程、命令速查、提交规范.md)
+  - Fix Problem
+    - [VScode-Latex中反向搜索失灵的解决方案](Blogs/FixProblem/VScode-Latex中反向搜索失灵的解决方案.md)
+    - [新版keil_MDK中无compiler_v5的解决方案](Blogs/FixProblem/新版keil_MDK中无compiler_v5的解决方案.md)
+- **Projects**
+  - [MuMeStar (Mutiple Menu Star for OLED)](Projects/MuMeStar%20(Mutiple%20Menu%20Star%20for%20OLED)%20详解.md)
+

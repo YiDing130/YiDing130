@@ -2,13 +2,17 @@
 
 # Yi Ding's Website
 
-> 💪巴拉巴拉
 
-你好
-    你好
-        你好
-- 不不不不不不不不不
-- 少时诵诗书飒飒飒
+> majoring in Electronic Engineering  
+
+> sharing notes and thoughts here
+<details>
+<summary>reach me</summary>
+
+- [x] [My GitHub](https://github.com/YiDingg)
+- [x] 
+
+</details>
 
 
-[进入个人网站](/README.md)
+[Enter the Website](/README.md)

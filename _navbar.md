@@ -1,11 +1,8 @@
-<!-- docs/_sidebar.md -->
-
-* [Home Page](/README.md "首页")
-
-* [My Blogs](Blogs/ "我的博客")
-  * [STM32](Blogs/STM32/)
-  * [C](Blogs/C/)
-  
-* [My Projects](Projects/ "我的项目")
-  * [Project 1](Projects/Project1.md)
-  * [Project 2](Projects/Project2.md)
+- [Home Page](/README.md)
+- Blogs
+  - [C](Blogs/C/C语言系列汇总.md)
+  - [STM32](Blogs/STM32/STM32系列汇总.md)
+  - [Git](Blogs/Git/Git教程、命令速查、提交规范.md)
+  - [Fix Problem](Blogs/FixProblem/VScode-Latex中反向搜索失灵的解决方案.md)
+- Projects
+  - [MuMeStar (Mutiple Menu Star for OLED)](Projects/MuMeStar%20(Mutiple%20Menu%20Star%20for%20OLED)%20详解.md)
