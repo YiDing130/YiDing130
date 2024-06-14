@@ -155,24 +155,22 @@
   <script src="https://cdn.bootcss.com/KaTeX/0.10.0/katex.min.js"></script>
 
   <!-- Link Gitalk 的支持文件  -->
-  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
-  
-  <script src="https://unpkg.com/gitalk@latest/dist/gitalk.min.js"></script> 
+  <div id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
   <script type="text/javascript">
-      var gitalk = new Gitalk({
-
-      // gitalk的主要参数
-          clientID: 'Ov23litwsqgUWqHQTZKn',
-          clientSecret: '32a84fada209ab08d4fe93b5b793de57c0703fb4',
-          repo: 'YiDingg',
-          owner: 'YiDingg',
-          admin: ['YiDingg'],
-          id:window.location.pathname,
-
-      });
-      gitalk.render('gitalk-container');
-  </script> 
-  
+  var gitalk = new Gitalk({
+      id: window.location.pathname,
+      clientID: 'Ov23litwsqgUWqHQTZKn',
+      clientSecret: '32a84fada209ab08d4fe93b5b793de57c0703fb4',
+      repo: 'Comment',
+      owner: 'YiDingg',
+      admin: ['YiDingg'],
+      labels: ['Gitalk'],
+      perPage: 50
+  })
+  gitalk.render('gitalk-container')
+  </script>
   <!-- Gitalk end -->
   
   
