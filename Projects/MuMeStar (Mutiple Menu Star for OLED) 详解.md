@@ -29,7 +29,7 @@
 | 步骤 |详细 | 图片 |
 | :------: | :------: | :-:|
 | 1. 新建工程并配置基本参数 | 在 CubeMX 中新建一个工程，依次配置：RCC为外部高速时钟，SYS为 SD Debug，调整项目路径、名称，代码生成设置等 | 无 |
-| 2.若为IIC通信，配置IIC接口 | 打开一个IIC接口（图中是I2C2，I2C模式），添加IIC对应的DMA（IIC_TX），并打开 I2C event interrupt 中断（可自由设置IIC通讯速率，I2C error interrput 也建议打开 ） | ![145b549c45efdab1b44999bba19a0ec2.png](https://raw.githubusercontent.com/YiDingg/DataBank/main/PanLuo_ImageBank/145b549c45efdab1b44999bba19a0ec2.png)![c001256c725502f159e869bc8c102031.png](https://i3.mjj.rip/2024/06/15/c001256c725502f159e869bc8c102031.png)![facea03349c14454ced48caa1af6684e.png](https://raw.githubusercontent.com/YiDingg/DataBank/main/PanLuo_ImageBank/facea03349c14454ced48caa1af6684e.png) |
+| 2.若为IIC通信，配置IIC接口 | 打开一个IIC接口（图中是I2C2，I2C模式），添加IIC对应的DMA（IIC_TX），并打开 I2C event interrupt 中断（可自由设置IIC通讯速率，I2C error interrput 也建议打开 ） | ![59152f7cd5543de7bf71b3630d46adfe.png](https://i3.mjj.rip/2024/06/15/59152f7cd5543de7bf71b3630d46adfe.png)![c001256c725502f159e869bc8c102031.png](https://i3.mjj.rip/2024/06/15/c001256c725502f159e869bc8c102031.png)![0257197e7c05fd4745bf13c7443f6789.png](https://i3.mjj.rip/2024/06/15/0257197e7c05fd4745bf13c7443f6789.png) |
 |3. 若为SPI通信，配置SPI接口|打开一个SPI接口（图中是SPI1，Transmit Only Master模式），添加SPI对应的DMA（SPI_TX），并打开 SPI global interrupt 中断（可自由设置SPI通信速率）；然后配置三个GPIO口（PP Output模式，分别连接OLED的CS, DC, RES接口）| [![pkwEhCj.png](https://s21.ax1x.com/2024/06/15/pkwEhCj.png)](https://imgse.com/i/pkwEhCj)[![pkwE48s.png](https://s21.ax1x.com/2024/06/15/pkwE48s.png)](https://imgse.com/i/pkwE48s)![a168ae6cd1448a70c28fb838a5975e67.png](https://i3.mjj.rip/2024/06/15/a168ae6cd1448a70c28fb838a5975e67.png) |
 |4. 配置四个GPIO外部中断作为按键| 外部中断模式（记得打开中断），根据具体硬件环境选择下降沿触发+内部上拉或者上升沿触发+内部下拉，四个按键分别对应 Previous, Enter, Next, Return  |[![pkwVZRA.png](https://s21.ax1x.com/2024/06/15/pkwVZRA.png)](https://imgse.com/i/pkwVZRA)[![pkwVnMt.png](https://s21.ax1x.com/2024/06/15/pkwVnMt.png)](https://imgse.com/i/pkwVnMt)|
 |5. 配置状态灯GPIO口| 配置一个PP Output 模式GPIO口作为状态灯（在程序中，任意按键按下会使状态灯电平翻转） |[![pkwVKqf.png](https://s21.ax1x.com/2024/06/15/pkwVKqf.png)](https://imgse.com/i/pkwVKqf)  |
@@ -61,7 +61,7 @@
 | 3. 新增两个节点函数 | 在 "菜单节点函数" 处定义你的函数。第一个节点函数在进入 Brightness 时调用（记为 Func_Brightness_enter ） ，第二个（记为 Func_Brightness_set）在进入 Brightness 后，有其他按键按下时调用。这两个函数共同实现了我们需要的功能：显示亮度调节页面，next 增大亮度，previous 减小亮度，同时在屏幕上显示当前亮度值，enter 或 return 确定更改。 | ![3217884c3b8e31e66a62667e336278a4.png](https://i3.mjj.rip/2024/06/15/3217884c3b8e31e66a62667e336278a4.png)![a838c119b804e8e9319eee7a4caae8b2.png](https://i3.mjj.rip/2024/06/15/a838c119b804e8e9319eee7a4caae8b2.png) |
 | 4. 进行函数的编写与指针替换 | 注意：两个函数都应为 void func(void) 型，利用全局变量 KEY_num 传递键值。 编写完毕后，将  Func_Brightness_enter 替换到 Settings 数组的函数指针处，将 Func_Brightness_set 替换到 Brightness 定义的函数指针处。  | ![c00f347eefc4bc9081c03520391e3136.png](https://i3.mjj.rip/2024/06/15/c00f347eefc4bc9081c03520391e3136.png)![997df42cd00c5352d6454c09bb17ce28.png](https://i3.mjj.rip/2024/06/15/997df42cd00c5352d6454c09bb17ce28.png) |
 |5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号|![ac1c3c06b73533dbd75830a42eb16a68.png](https://i3.mjj.rip/2024/06/15/ac1c3c06b73533dbd75830a42eb16a68.png)|
-|6. 编译并烧录 | 可以看到，成功实现屏幕亮度自由调节 ||
+|6. 编译并烧录 | 可以看到，成功实现屏幕亮度自由调节 |![image-20240616011235331](C:\Users\13081\AppData\Roaming\Typora\typora-user-images\image-20240616011235331.png)|
 
 ### 3. 添加 Once 型菜单
 
@@ -69,12 +69,12 @@
 
 | 步骤 | 详解 | 图片 |
 | :------: | :------: | :------: |
-| 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Once 型菜单，Once 型菜单数组大小需为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置。 |![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240510/001132186-1.png) |
-| 2. 定义新菜单并添加结构体 | 在 Multimenu.c "菜单栏定义" 的 " Menu_2 " 中定义刚刚声明的菜单（即数组），节点函数可以先填 {NULL, 0, Invalid_Operation} 中的任一个以避免报错 ，注释写的 Menu_2 表示其为二级菜单（Main为0级）；并在其父级菜单（这里是 Hello，位于 " Menu_1 " ）中添加结构体，添加结构体时勿忘修改数组大小。结构体示意图见 "4.2 添加 Data 型菜单" |![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240510/003435101-1.png) |
-| 3. 新增一个节点函数 | 在 "菜单节点函数" 处定义你的函数。函数在 enter 此菜单时调用，我们编写函数以在屏幕上显示 "Hello world!" | ![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240510/002519796-1.png) |
-| 4. 进行函数的编写与指针替换 | 注意：函数应为 void func(void) 型。 编写完毕后，将其替换到父菜单数组的对应结构体中  |![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240510/003237502-1.png) |
-|5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号|![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240510/002736111-1.png)|
-|6. 编译并烧录 | 可以看到，成功实现 Sayhello 功能 | ![image](/static/uploads/2024/5/13/f903fb2f49e80697a37eb7b9e0cd8e79.jpg) |
+| 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Once 型菜单，Once 型菜单数组大小需为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置。 |![1b30609af06e684df3bb8dae9ed77a5e.png](https://i3.mjj.rip/2024/06/15/1b30609af06e684df3bb8dae9ed77a5e.png) |
+| 2. 定义新菜单并添加结构体 | 在 Multimenu.c "菜单栏定义" 的 " Menu_2 " 中定义刚刚声明的菜单（即数组），节点函数可以先填 {NULL, 0, Invalid_Operation} 中的任一个以避免报错 ，注释写的 Menu_2 表示其为二级菜单（Main为0级）；并在其父级菜单（这里是 Hello，位于 " Menu_1 " ）中添加结构体，添加结构体时勿忘修改数组大小。结构体示意图见 "4.2 添加 Data 型菜单" |![39c1d19ccc23177eb2d6777658c9ebd1.png](https://i3.mjj.rip/2024/06/15/39c1d19ccc23177eb2d6777658c9ebd1.png) |
+| 3. 新增一个节点函数 | 在 "菜单节点函数" 处定义你的函数。函数在 enter 此菜单时调用，我们编写函数以在屏幕上显示 "Hello world!" | ![35d2cdf2481f3284b57dbe46813f7b99.png](https://i3.mjj.rip/2024/06/15/35d2cdf2481f3284b57dbe46813f7b99.png) |
+| 4. 进行函数的编写与指针替换 | 注意：函数应为 void func(void) 型。 编写完毕后，将其替换到父菜单数组的对应结构体中  |![4077d13095628731040956285059b15f.png](https://i3.mjj.rip/2024/06/15/4077d13095628731040956285059b15f.png) |
+|5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号|![0d1b0ad15dea38421eac0ca1f302c31c.png](https://i3.mjj.rip/2024/06/15/0d1b0ad15dea38421eac0ca1f302c31c.png)|
+|6. 编译并烧录 | 可以看到，成功实现 Sayhello 功能 | ![1c71a0c981deafb0c3ec037ef567563a.jpeg](https://i3.mjj.rip/2024/06/15/1c71a0c981deafb0c3ec037ef567563a.jpeg) |
 
 ### 4. 添加 Loop 型菜单
 注：Loop 型菜单的循环由主程序中的总循环提供，也即 main.c 中的 while(1) 循环。因此，在编写下文的 Loop_run 型函数时，只需假设
@@ -83,12 +83,12 @@
 
 | 步骤 | 详解 | 图片 |
 | :------: | :------: | :------: |
-| 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Loop 型菜单，Loop 型菜单数组大小需为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置；这里以将Smile 放在了 Main 的 Hello 下。 |![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240513/114942480-1.png)|
-| 2. 定义新菜单并添加结构体 | 在 Multimenu.c"菜单栏定义" 的 " Menu_2 " 中定义刚刚声明的菜单（即数组），Menu_2 表示其为二级菜单（Main为0级）；并在其父级菜单（这里是 Hello，位于 " Menu_1 " ）中添加结构体，添加结构体时勿忘修改数组大小  |![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240513/190051563-1.png)|
-| 3. 新增两个节点函数 | 在 "菜单节点函数" 处定义你的函数。第一个节点函数在进入 Smile 时调用（记为 Func_Smile_enter ） ，第二个（记为 Func_Smile_run）在进入 Smile 后，有其他按键按下时调用。这两个函数共同实现了我们需要的功能：enter函数进行初始化，循环调用run函数。一个示例功能是：next 笑脸右移，previous 笑脸左移，enter 笑脸反色， return 退出。 |![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240513/190508047-1.png)|
-| 4. 进行函数的编写并替换指针 | 注意：两个函数都应为 void func(void) 型，利用全局变量 KEY_num 实现键值传递。 编写完毕后，将  Func_Smile_enter 替换到 Hello 数组下的的smile节点函数指针处，将 Func_Smile_run 替换到 Smile 定义的函数指针处。  |![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240513/195217834-1.png) |
-|5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号| ![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240513/195312081-1.png) |
-|6. 编译并烧录 | 可以看到，成功实现笑脸眼睛循环转动，且横向位置可调、循环可随时暂停 |!video[video](/static/uploads/2024/5/13/694fac4c38008c055e88d17a4e448a3b.mp4)|
+| 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Loop 型菜单，Loop 型菜单数组大小需为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置；这里以将Smile 放在了 Main 的 Hello 下。 |![4009d06ec51e9dd627a7c51acb2a3fed.png](https://i3.mjj.rip/2024/06/15/4009d06ec51e9dd627a7c51acb2a3fed.png)|
+| 2. 定义新菜单并添加结构体 | 在 Multimenu.c"菜单栏定义" 的 " Menu_2 " 中定义刚刚声明的菜单（即数组），Menu_2 表示其为二级菜单（Main为0级）；并在其父级菜单（这里是 Hello，位于 " Menu_1 " ）中添加结构体，添加结构体时勿忘修改数组大小  |![4eccb7b01beec0899a30a0776cac27db.png](https://i3.mjj.rip/2024/06/15/4eccb7b01beec0899a30a0776cac27db.png)|
+| 3. 新增两个节点函数 | 在 "菜单节点函数" 处定义你的函数。第一个节点函数在进入 Smile 时调用（记为 Func_Smile_enter ） ，第二个（记为 Func_Smile_run）在进入 Smile 后，有其他按键按下时调用。这两个函数共同实现了我们需要的功能：enter函数进行初始化，循环调用run函数。一个示例功能是：next 笑脸右移，previous 笑脸左移，enter 笑脸反色， return 退出。 |![5ceb8d1b2b828a31647f7dd5fa06819f.png](https://i3.mjj.rip/2024/06/15/5ceb8d1b2b828a31647f7dd5fa06819f.png)|
+| 4. 进行函数的编写并替换指针 | 注意：两个函数都应为 void func(void) 型，利用全局变量 KEY_num 实现键值传递。 编写完毕后，将  Func_Smile_enter 替换到 Hello 数组下的的smile节点函数指针处，将 Func_Smile_run 替换到 Smile 定义的函数指针处。  |![192ec1ca442b1786fcb4f6e0c216b9f6.png](https://i3.mjj.rip/2024/06/15/192ec1ca442b1786fcb4f6e0c216b9f6.png) |
+|5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号| ![15e63c7ced1df8b7ad26fcd79d5f258e.png](https://i3.mjj.rip/2024/06/15/15e63c7ced1df8b7ad26fcd79d5f258e.png) |
+|6. 编译并烧录 | 可以看到，成功实现笑脸眼睛循环转动，且横向位置可调、循环可随时暂停 |![image](https://raw.githubusercontent.com/YiDingg/ImageBank_0/main/20240616/011242384.jpg)|
 
 ## 四、原理详解
 
@@ -293,9 +293,9 @@ KEY_Parent_return()
 
 项目的建立和完善参考了多方资料，感谢他们的开源分享，并附在此处以供查阅。
 
-- [树状菜单实现](hhttps://blog.csdn.net/qq_21154037/article/details/103149513) 
-- [MuitMenu](https://github.com/JFeng-Z/MultMenu) 
-- [函数指针多级菜单](https://gitee.com/AdamLoong/Embedded_Menu_Simple) 
--  [开源单片机多级菜单+OLED动画原理讲解](https://www.bilibili.com/video/BV1Y94y1g7mu)
-- [波特率动](https://led.baud-dance.com/)
+- [《树状菜单实现》](hhttps://blog.csdn.net/qq_21154037/article/details/103149513) 
+- [【开源单片机多级菜单+OLED动画原理讲解】](https://www.bilibili.com/video/BV1Y94y1g7mu)
+- [GitHub: MultMenu](https://github.com/JFeng-Z/MultMenu) 
+- [Gitee: 函数指针多级菜单](https://gitee.com/AdamLoong/Embedded_Menu_Simple) 
+- [App: 波特率动](https://led.baud-dance.com/)
 

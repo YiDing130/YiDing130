@@ -20,7 +20,6 @@ Git 目前有 Bash，GUI，CMD 三种使用使用环境。Bash 与Linux命令格
 <img src="https://i3.mjj.rip/2024/06/15/9c8807848fa932eaa4bd76b900760af1.png" alt="9c8807848fa932eaa4bd76b900760af1.png" border="0">
 </details>
 
-
 <details>
 <summary>ls</summary>
 
@@ -38,73 +37,108 @@ Git 目前有 Bash，GUI，CMD 三种使用使用环境。Bash 与Linux命令格
 
 
 ### 1. Git使用演示
-为了更好的演示效果，我们在桌面新建一个文件夹 Git_Test，在其中新建 test.tex 文件，并以此进行演示。![image](/static/uploads/2024/6/6/72af78cc78b98e8f0170678132d4c18b.png)
+为了更好的演示效果，我们在桌面新建一个文件夹 Git_Test，在其中新建 test.tex 文件，并以此进行演示。![image](https://raw.githubusercontent.com/YiDingg/ImageBank_0/main/20240616/013533662.png)
 
 下面的步骤，既可以在 Windosw PowerShell 中进行，也可以在 Git Bash 中进行，步骤完全相同，这里以 Git Bash 为例。
 
-+++ 1. 查看、修改用户信息
-`git config --global --list` ：查看用户信息<br> `git config --global user.name "name"` ：修改用户名 <br>`git config --global user.email "ema"` ：修改邮箱
-![image](/static/uploads/2024/6/6/3f8f3a7f3c1679a20e1f3c7b13d0da01.png)
 
-++ 2. 初始化本地git仓库
-`git init` ：初始化本地仓库<br>会进行初始化，并在当前目录创建.git文件夹（用于保存版本记录和变化）![image](/static/uploads/2024/6/6/03a6a13aece0a9736316e109d8d8d24e.png)
+<details>
+<summary> 1. 查看、修改用户信息</summary>  
 
-++ 3. 添加文件到Git
-`git add test.txt` ：添加一个文件<br>`git add .` ：添加当前目录所有文件![image](/static/uploads/2024/6/6/df3db5115da4c9a8ebf8d9945c688377.png)
+`pwd`  (print work directory)：%显示当前目录所在地址<br> 
+`git config --global --list` ：查看用户信息<br> 
+`git config --global user.name "name"` ：修改用户名 <br>
+`git config --global user.email "email"` ：修改邮箱
+</details>
 
-++ 4. 查看文件状态
-`git status` ：查看（当前目录）文件更改情况（分为stage区和unstage区）![image](/static/uploads/2024/6/6/a12e42276d2f3eebd71edd2519f0e738.png)
+<details>
+<summary> 2. 初始化本地git仓库  </summary>  
 
-++ 5. 提交更改（固定为版本）
+`git init` ：初始化本地仓库<br>会进行初始化，并在当前目录创建.git文件夹（用于保存版本记录和变化）
+</details>
+
+<details>
+<summary>  3. 添加文件到Git  </summary>  
+
+`git add test.txt` ：添加一个文件<br>`git add .` ：添加当前目录所有文件
+</details>
+
+<details>
+<summary> 4. 查看文件状态  </summary>  
+
+`git status` ：查看（当前目录）文件更改情况（分为stage区和unstage区）
+</details>
+
+<details>
+<summary>  5. 提交更改（固定为版本） </summary>  
+
 `git commit -m "初始化，并添加了几个文件"` ：提交更改，引号内为此次提交的批注
-![image](/static/uploads/2024/6/6/ed510c610e39396f273e3d4a505d5df6.png)<br>注意：每次提交前都需要将待提交文件add到stage区，如下图。或者用`-a -m`参数一次性add到stage区并commit![image](/static/uploads/2024/6/6/cb7da8b75a161f4765409267b8b7c971.png)
+<br>注意：每次提交前都需要将待提交文件add到stage区，如下图。或者用`-a -m`参数一次性add到stage区并commit
 `git commit -a -m "一次性完成add和commit"`：一次性完成add和commit
-![image](/static/uploads/2024/6/6/fd43b3dae4cf98c8d398bfa1b0f42078.png)
 
-++ 6. 查看提交日志
-`git log`：查看提交日志<br>`git log --oneline`：简洁版日志，每行显示一次提交![image](/static/uploads/2024/6/6/ebbf5b42631c97ab5a37b6a916d3733f.png)
+</details>
 
-++ 7. 回退版本
+<details>
+<summary>  6. 查看提交日志  </summary>  
+
+`git log`：查看提交日志<br>`git log --oneline`：简洁版日志，每行显示一次提交
+</details>
+
+<details>
+<summary> 7. 回退版本  </summary>  
+
 `git reset --hard HEAD^`：重置为上个版本
 `git reset --hard <commit_hash>`：重置为某个版本
-![image](/static/uploads/2024/6/6/a168031ff0803c6054cb6dcf9263b71c.png)
 注意： --hard 回退模式会彻底删除之后的所有更改，无法撤销
+</details>
 
-++ 8. 创建并切换分支
+
+
+<details>
+<summary> 8. 创建并切换分支  </summary>  
+
 `git branch <branch_name>`：创建新分支（如果分支已存在，则不产生任何效果）
 `git branch`：查看所有分支
 `git checkout <branch_name>`：切换到某分支（如果分支不存在，则不产生任何效果）
-![image](/static/uploads/2024/6/6/b2093b5a857e0766581af3d4600bbd12.png)
+
 `git checkout -b bra_name`：切换到bra_name分支，如果分支不存在，创建并切换分支
 
 注：创建分支时，会将当前分支（可以不是master）复制到新分支，后续的修改都是基于此版本。
 例如团队协作开放一个项目时，从V1.0到V1.1要新增三个功能，分别由三个人进行开发。这时就在master上的V1.0创建三个分支，三个人基于V1.0版本，分别开发完毕后再进行merge合并。
+</details>
 
-++ 9. 分支合并
+<details>
+<summary> 9. 分支合并  </summary>  
+
 `git merge --no-ff <local_branch_name> -m "merge bra_1 into bra_2"`：将某个分支合并到当前分支，并附带提交备注
 `git branch -vv`：查看所有分支状态
 注：merge合并只是将某分支的更改合并到另一个分支，并不会删除原始分支，建议提交信息格式为 "merge branch V2.0 into branch main "。合并时可能会出现conflicts，手动解决后再次merge即可。
-![image](/static/uploads/2024/6/7/444e64691acbf55106b1387683a8e209.png)
+</details>
 
-++ 10. 连接远程仓库（HTTPS方式）
-首先创建一个仓库，填写相关信息和初始化信息，并复制仓库连接：
-![image](/static/uploads/2024/6/7/ef87366a5a324e23c121d1a6b9c4a027.png)![image](/static/uploads/2024/6/7/03cdf51a4b38e35b16e99465a31fb85c.png)![image](/static/uploads/2024/6/7/e0738ff2b1ac27ae032037d1ba9f271f.png)
+<details>
+<summary>  10. 连接远程仓库（HTTPS方式） </summary>  
+
+首先创建一个仓库，填写相关信息和初始化信息，并复制仓库连接：  
+
 `git remote add origin <remote-url>`：将远程仓库链接到本地并命名为 origin（注意，Git Bash 默认中键黏贴）
 `git remote -v`：查看已链接的仓库信息
 `git branch -m main`：重命名当前分支为 "main"
-![image](/static/uploads/2024/6/7/acb36136278ab0acc869f7f9a5539419.png)
+</details>
 
-++ 11. 上传更改到远程仓库
+
+<details>
+<summary> 11. 上传更改到远程仓库  </summary>  
+
 确保现在你处于main分支，然后：
 `git push -u origin main`：将当前分支推送到远程仓库 origin 的 main 分支，-u 表示建立分支关联（下次位于main分支时仅需 git push 即可将本地main分支推送到origin的main分支）
 
 刷新界面：
-![image](/static/uploads/2024/6/7/f4f71113127fd94dda9f73a28c105295.png)
+
 
 如果出现SSL证书无法验证，确保此远程仓库是可信的，然后 `git config --global http.sslVerify false`（全局禁用SSL证书验证）并再次提交。
-![image](/static/uploads/2024/6/7/4dbc3c226fa536fb049201d18faaa69f.png)![image](/static/uploads/2024/6/7/37460e934022f4a686245c459538002a.png)![image](/static/uploads/2024/6/7/0b91fe55c47871c485bf3b37e350f5be.png)
 
-+++
+</details>
+
 
 ### 2. Git管理新项目
 在Github上新建一个项目库，我们希望将它部署到本地，并在本地进行修改、提交、推送等操作。 以最常见的分支结构（主main+dev，辅feat+rel+fix）为例：
@@ -115,16 +149,15 @@ Git 目前有 Bash，GUI，CMD 三种使用使用环境。Bash 与Linux命令格
 `git branch -vv`：查看本地分支（-vv指详细信息）
 `git branch -r`：查看远程链接分支
 `git remote -v`：查看链接信息
-![image](/static/uploads/2024/6/7/6671ed4df7141964414283fa813ae812.png)![image](/static/uploads/2024/6/7/473f3df869b9884cb8a15f9339fda3df.png)
+
 当然，也可以一次性查看本地、远程分支：
-`git branch -a -vv`：查看所有分支（-vv指详细信息）
+`git branch -a -vv`：查看所有分支（-vv指详细信息)
 
 注：git clone 命令完成克隆时，会自动将本地链接到远程仓库
 
 ++ 2. 修改链接仓库名称
 将远程仓库克隆到本地时，其默认名为origin，我们对其进行修改。
-`git remote rename origin WB.Git_Test_Repo`：重命名被链接的远程仓库
-![image](/static/uploads/2024/6/7/09614f0f62a28c2f0e1e1ecb6940a253.png)![image](/static/uploads/2024/6/7/e1277276ac3e5c987ee06ae6eefb4e83.png)
+
 
 ++ 3. 配置SSH密钥
 [Git配置SSH Key（密钥和公钥）到github](https://blog.csdn.net/Yaoyao2024/article/details/132123525)
@@ -132,11 +165,11 @@ Git 目前有 Bash，GUI，CMD 三种使用使用环境。Bash 与Linux命令格
 `git branch -b <branch_name>`：新建本地分支
 修改分支并commit后：
 `git push <remote_name> <remote_branch_name>`：将本地分支推送到远程
-![image](/static/uploads/2024/6/7/b37aaf5812f64a210df764b729d14e4e.png)
+
 `git branch -d <branch_name>`：删除本地分支
-![image](/static/uploads/2024/6/7/45bb8ddfb9cd8675ef3680117cf4ac73.png)
+
 `git push <remote_name> --delete <remote_branch_name>`：删除远程分支
-![image](/static/uploads/2024/6/7/a0bb418996900b929266600335f482dd.png)
+
 
 ++ 5. 标签管理与版本发行
 `git tag <tag_name>`：为HEAD所在提交位置打标签（本地）
@@ -146,10 +179,10 @@ Git 目前有 Bash，GUI，CMD 三种使用使用环境。Bash 与Linux命令格
 +++
 ### 3. 本地老项目搭建 Git 管理 
 现在我们需要为一个老项目搭建 Git 管理，下面是它之前所有的发行版本：
-![image](/static/uploads/2024/6/7/5fd05d417651ef1e8c9cbb24ec4ecaaf.png)
+
 
 +++ 1. 创建远程项目库
-![image](/static/uploads/2024/6/7/7354267c2df21be07433a848a94faccd.png)
+
 
 ++ 2. 配置SSH密钥
 `ssh-keygen -t rsa -C <your_email>`
@@ -169,7 +202,7 @@ ssh: connect to host github.com port 22: Connection refused
 fatal: Could not read from remote repository.
 ```
 这是由于防火墙拒绝SSH请求导致的，参考上面的官方文档[Using SSH over the HTTPS port](https://docs.github.com/en/authentication/troubleshooting-ssh/using-ssh-over-the-https-port)即可轻松解决。
-![image](/static/uploads/2024/6/7/aede93489378fdc3228e5b592e73628b.png)![image](/static/uploads/2024/6/7/4388905e4fe3a9b43d11126ac60e717b.png)
+
 
 ++ 4. 进行版本导入
 `git remote rename origin <new_remote_name>`：先修改一下远程链接名称
@@ -191,7 +224,7 @@ fatal: Could not read from remote repository.
 
 ++ 5. 检查是否导入成功
 全部版本导入完毕后，在Github的Tag处可直接下载对应版本。
-![image](/static/uploads/2024/6/7/e0f4cf8eaa62499fc61d6f2485bbee3b.png)![image](/static/uploads/2024/6/7/904642d6b65b1391d58c9df11c454dfb.png)
+
 这样就完成了老项目库的 Git 搭建
 
 +++
@@ -358,7 +391,7 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 +++
 
 ### 2. 简写对照表
-	
+
 +++ 简写对照表：
 | 简写 | 全拼 |
 | ------ | ------ |
@@ -458,11 +491,11 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 Git下载及命令行环境配置步骤如下：
 | 步骤|详细| 图片 |
 | :-: | :-: |:-: |
-| 1. 进入 [Git官网](https://git-scm.com/) 进行下载：  |依次点击：Downloads --> Windows --> 64-bit Git for Windows Setup  |![image](/static/uploads/2024/6/6/a90d50be85cd3f7bafcaa155223bee85.png)|
-| 2. 安装Git | 选择合适的安装路径!!#ff0000 （不要有中文字符）!! ，所有安装设置均不用修改，一路 next 直到 Install（安装后可以再修改），点击 Install 进行安装|![image](/static/uploads/2024/6/6/fedc7f33079a15b89c91aa59f0d8c84c.png)|
-| 3. 检查是否安装成功 | 在桌面右键，点击 Open Git Bash here，输入 `git version` 并回车，正常显示版本信息则表示安装成功 |![image](/static/uploads/2024/6/6/05e486b9fdd673be65d07514fb55b2c4.png)![image](/static/uploads/2024/6/6/b6afebf288694696895ed521f0c59564.png)|
+| 1. 进入 [Git官网](https://git-scm.com/) 进行下载：  |依次点击：Downloads --> Windows --> 64-bit Git for Windows Setup  |      |
+| 2. 安装Git |       选择合适的安装路径!!#ff0000 （不要有中文字符）!!       |      |
+| 3. 检查是否安装成功 | 在桌面右键，点击 Open Git Bash here，输入 `git version` 并回车，正常显示版本信息则表示安装成功 |      |
 ### 3. Github 无法连接？
-推荐下载 [Watt Toolkit (原名steam++) -- Github网络加速器](https://steampp.net/)，可完全免费加速 Github、steam 等平台。我个人使用的就是这个，但确实没收广告费，只是提供我的建议。![image](/static/uploads/2024/6/8/dc4398151499940f02248eb9894d8f88.png)
+推荐下载 [Watt Toolkit (原名steam++) -- Github网络加速器](https://steampp.net/)，可完全免费加速 Github、steam 等平台。我个人使用的就是这个，但确实没收广告费，只是提供我的建议。
 
 
 ## 参考文章
@@ -476,4 +509,3 @@ Git下载及命令行环境配置步骤如下：
 [《Git 分支管理与提交规范》](https://blog.csdn.net/adaivskean/article/details/124878194)
 [《Git笔记 - Git重命名详解》](https://blog.csdn.net/qq_35097289/article/details/133696725)
 [《Commit message 和 Change log 编写指南》](https://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
- 

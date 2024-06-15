@@ -115,11 +115,11 @@
             },
 
             /* 字数统计 */
-            count: {
+/*             count: {
                 countable:  true,
-                position:   "top",
-                margin:     "10px",
-                float:      "right",
+                position:   "bottom",
+                margin:     "100px",
+                float:      "top",
                 fontsize:   "0.9em",
                 color:      "gray",
                 language:   "chinese",
@@ -128,7 +128,7 @@
                     minute: "",
                 },
                 isExpected: true,
-            },
+            }, */
 
             /* tab选项卡 */
             tabs: {
@@ -201,7 +201,7 @@
             /* 代码块折叠 */
             hideCode: {
                 scroll: true, // Enable scrolling
-                height: 300 // Max height
+                height: 250 // Max height
             }
             
         }
@@ -211,17 +211,17 @@
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
     <!-- emoji表情支持 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
-    <!-- 图片放大缩小支持 -->
+    <!-- 图片缩放/点击可放大查看 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
     <!-- 搜索功能支持 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
     <!-- 代码块复制 -->
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
-    <!-- 字数统计 -->
-    <script src="//unpkg.com/docsify-count/dist/countable.js"></script>  
+    <!-- 字数统计(不行) (https://www.npmjs.com/package/docsify-count)-->
+<!--     <script src="//unpkg.com/docsify-count/dist/countable.js"></script>   -->
     <!-- 前后篇章/页面导航 -->
     <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
-      <!-- 侧边栏目录折叠 -->
+      <!-- 侧边栏目录折叠 (https://www.npmjs.com/package/docsify-sidebar-collapse)-->
     <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/sidebar.min.css" /> <!-- 主题(arrow) -->
     <!-- 代码高亮 -->
@@ -315,3 +315,4 @@
 </body>
 
 </html>
+
