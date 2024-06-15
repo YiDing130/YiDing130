@@ -21,21 +21,24 @@
 
 ## 二、移植方法
 
+**注：**
+
+-   菜单默认添加了小恐龙游戏，如果需要节省内存空间，只需在 Mutimenu.h 中取消小恐龙游戏的宏定义。
+-   
+
 | 步骤 |详细 | 图片 |
 | :------: | :------: | :-:|
 | 1. 新建工程并配置基本参数 | 在 CubeMX 中新建一个工程，依次配置：RCC为外部高速时钟，SYS为 SD Debug，调整项目路径、名称，代码生成设置等 | 无 |
-| 2.若为IIC通信，配置IIC接口 | 打开一个IIC接口（图中是I2C2，I2C模式），添加IIC对应的DMA（IIC_TX），并打开 I2C event interrupt 中断（可自由设置IIC通讯速率，I2C error interrput 也建议打开 ） | ![image](/static/uploads/2024/5/31/145b549c45efdab1b44999bba19a0ec2.png)![image](/static/uploads/2024/5/31/30b730bd7c108cb7957781a4ba9136c3.png)![image](/static/uploads/2024/5/31/facea03349c14454ced48caa1af6684e.png) |
-|3. 若为SPI通信，配置SPI接口|打开一个SPI接口（图中是SPI1，Transmit Only Master模式），添加SPI对应的DMA（SPI_TX），并打开 SPI global interrupt 中断（可自由设置SPI通信速率）；然后配置三个GPIO口（PP Output模式，分别连接OLED的CS, DC, RES接口）| ![image](/static/uploads/2024/5/31/ccbee847260d6a5626ad5be541c936ac.png)![image](/static/uploads/2024/5/31/ccd5d165f975c6e3d3a089c6e9fdfd4b.png) |
-|4. 配置四个GPIO外部中断作为按键| 外部中断模式（记得打开中断），根据具体硬件环境选择下降沿触发+内部上拉或者上升沿触发+内部下拉，四个按键分别对应 Previous, Enter, Next, Return  |![image](/static/uploads/2024/5/31/fa364fb53e73da94d802a0df6b9b8f4a.png)![image](/static/uploads/2024/5/31/5d1bfad6cebedf4f95c3c9cad584490c.png)|
-|5. 配置状态灯GPIO口| 配置一个PP Output 模式GPIO口作为状态灯（在程序中，任意按键按下会使状态灯电平翻转） |![image](/static/uploads/2024/5/31/f1a5e5892e967a837bf569f48a9e671c.png)  |
-|6. 生成代码并编译 | 保存并生成代码，在Keil中编译一次 |  |
-|7. 添加项目文件| 将下载好的六个文件（MutiMenu.c，MutiMenu.h，Mutimenu_Data.h，OLEDSD.c，OLEDSD.h，OLEDSD_Font.h）复制到项目目录下的inc文件夹（.h文件放这里）和src文件夹（.c文件放这里）|![image](/static/uploads/2024/5/31/844360a5091837bde444c18f218ccf7c.png)![image](/static/uploads/2024/5/31/d413a5bfc38b6ef909e2fbd6a3482ac5.png) |
-|8. 修改main.c| 在main.c中 #include "MutiMenu.h"，并在while(1)循环中使用函数 Menu_Handler() | ![image](/static/uploads/2024/5/31/b118c7a6967396f7650d7a1a47cd7035.png)![image](/static/uploads/2024/5/31/6f67bda7e6f53ab270ab1f3b3e80519e.png) |
-|9. 移植完成| 菜单移植完成，编译并下载，连接好硬件部分，可以看到菜单正常显示 | ![image](/static/uploads/2024/5/31/8e02b69587c5eb696d88dc0bae5e0377.png) |
+| 2.若为IIC通信，配置IIC接口 | 打开一个IIC接口（图中是I2C2，I2C模式），添加IIC对应的DMA（IIC_TX），并打开 I2C event interrupt 中断（可自由设置IIC通讯速率，I2C error interrput 也建议打开 ） | ![145b549c45efdab1b44999bba19a0ec2.png](https://raw.githubusercontent.com/YiDingg/DataBank/main/PanLuo_ImageBank/145b549c45efdab1b44999bba19a0ec2.png)![c001256c725502f159e869bc8c102031.png](https://i3.mjj.rip/2024/06/15/c001256c725502f159e869bc8c102031.png)![facea03349c14454ced48caa1af6684e.png](https://raw.githubusercontent.com/YiDingg/DataBank/main/PanLuo_ImageBank/facea03349c14454ced48caa1af6684e.png) |
+|3. 若为SPI通信，配置SPI接口|打开一个SPI接口（图中是SPI1，Transmit Only Master模式），添加SPI对应的DMA（SPI_TX），并打开 SPI global interrupt 中断（可自由设置SPI通信速率）；然后配置三个GPIO口（PP Output模式，分别连接OLED的CS, DC, RES接口）| [![pkwEhCj.png](https://s21.ax1x.com/2024/06/15/pkwEhCj.png)](https://imgse.com/i/pkwEhCj)[![pkwE48s.png](https://s21.ax1x.com/2024/06/15/pkwE48s.png)](https://imgse.com/i/pkwE48s)![a168ae6cd1448a70c28fb838a5975e67.png](https://i3.mjj.rip/2024/06/15/a168ae6cd1448a70c28fb838a5975e67.png) |
+|4. 配置四个GPIO外部中断作为按键| 外部中断模式（记得打开中断），根据具体硬件环境选择下降沿触发+内部上拉或者上升沿触发+内部下拉，四个按键分别对应 Previous, Enter, Next, Return  |[![pkwVZRA.png](https://s21.ax1x.com/2024/06/15/pkwVZRA.png)](https://imgse.com/i/pkwVZRA)[![pkwVnMt.png](https://s21.ax1x.com/2024/06/15/pkwVnMt.png)](https://imgse.com/i/pkwVnMt)|
+|5. 配置状态灯GPIO口| 配置一个PP Output 模式GPIO口作为状态灯（在程序中，任意按键按下会使状态灯电平翻转） |[![pkwVKqf.png](https://s21.ax1x.com/2024/06/15/pkwVKqf.png)](https://imgse.com/i/pkwVKqf)  |
+|6. 生成代码并编译 | 保存并生成代码，在Keil中编译一次 | 无 |
+|7. 添加项目文件| 将下载好的六个文件（MutiMenu.c，MutiMenu.h，Mutimenu_Data.h，OLEDSD.c，OLEDSD.h，OLEDSD_Font.h）复制到项目目录下的inc文件夹（.h文件放这里）和src文件夹（.c文件放这里）|![9f5cece7d5316f9dd2a9abeae19e24b0.png](https://i3.mjj.rip/2024/06/15/9f5cece7d5316f9dd2a9abeae19e24b0.png)![5e5603f2d25c22a7d13911be6169156a.png](https://i3.mjj.rip/2024/06/15/5e5603f2d25c22a7d13911be6169156a.png) |
+|8. 修改main.c| 在main.c中 #include "MutiMenu.h"，并在while(1)循环中使用函数 Menu_Handler() | ![9b5a30d0cd85a5dd83d91e35efa68478.png](https://i3.mjj.rip/2024/06/15/9b5a30d0cd85a5dd83d91e35efa68478.png)![e60a496447f9bd057350b14344d1b257.png](https://i3.mjj.rip/2024/06/15/e60a496447f9bd057350b14344d1b257.png) |
+|9. 移植完成| 菜单移植完成，编译并下载，连接好硬件部分，可以看到菜单正常显示 | ![aa86fddb5f505dcbb7a4ad56b8b33659.png](https://i3.mjj.rip/2024/06/15/aa86fddb5f505dcbb7a4ad56b8b33659.png) |
 
-**注：**
--   菜单默认添加了小恐龙游戏，如果需要节省内存空间，只需在 Mutimenu.h 中取消小恐龙游戏的宏定义。
-- 
+
 
 ## 三、如何自由扩展菜单
 ### 1. 添加 Parent 型菜单
@@ -43,9 +46,9 @@
 
 | 步骤 | 详解 | 图片 |
 | :------: | :------: | :------: |
-| 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Parent 型菜单，Parent 型菜单数组大小即为子菜单数目。这里我们仅在其下添加一个 "Dinosaur" 选项，因此 Parent 型菜单数组大小为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置，这里以将 Game 选项放在了 Main 下。 |![image](/static/uploads/2024/5/22/d1c886501e249df550424788681e0503.png) |
-| 2. 定义新菜单并添加结构体 | 在 main.c 中的 Main 菜单下加入 Game 菜单（!!#ff0000 子节点函数填写 Draw_Menu!!），并在 "Menu_1" 下方添加 Game 菜单的定义，Menu_1 表示其为一级菜单（Main为0级），然后!!#ff0000 修改Main菜单数组大小!!（在宏定义处修改） | ![image](/static/uploads/2024/5/22/7954c06e1411365ed5d1b72efb2589fb.png)![image](/static/uploads/2024/5/22/f292107ef4facfe0860345261af77f1f.png)|
-|3. 编译并下载 | 可以看到，成功实现菜单的添加 | （无图片） |
+| 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Parent 型菜单，Parent 型菜单数组大小即为子菜单数目。这里我们仅在其下添加一个 "Dinosaur" 选项，因此 Parent 型菜单数组大小为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置，这里以将 Game 选项放在了 Main 下。 |![abcdef4bf24ff91c1659ba0847e28f9e.png](https://i3.mjj.rip/2024/06/15/abcdef4bf24ff91c1659ba0847e28f9e.png) |
+| 2. 定义新菜单并添加结构体 | 在 main.c 中的 Main 菜单下加入 Game 菜单（!!#ff0000 子节点函数填写 Draw_Menu!!），并在 "Menu_1" 下方添加 Game 菜单的定义，Menu_1 表示其为一级菜单（Main为0级），然后!!#ff0000 修改Main菜单数组大小!!（在宏定义处修改） | ![51540e3356494fab57ca63d4e1500189.png](https://i3.mjj.rip/2024/06/15/51540e3356494fab57ca63d4e1500189.png)![4cb635503e02cb66d316ca4967678cef.png](https://i3.mjj.rip/2024/06/15/4cb635503e02cb66d316ca4967678cef.png) |
+|3. 编译并下载 | 可以看到，成功实现菜单的添加 | 无 |
 
 ### 2. 添加 Data 型菜单
 
@@ -53,12 +56,12 @@
 
 | 步骤 | 详解 | 图片 |
 | :------: | :------: | :------: |
-| 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Data 型菜单，Data 型菜单数组大小需为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置；这里以将 Brightness 选项放在了 Main 的 Settings 下。 |![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240508/223505949-1.png) |
-| 2. 定义新菜单并添加结构体 | 在 Multimenu.c"菜单栏定义" 的 " Menu_2 " 中定义刚刚声明的菜单（即数组），Menu_2 表示其为二级菜单（Main为0级）；并在其父级菜单（这里是 Settings，位于 " Menu_1 " ）中添加结构体，添加结构体时!!#ff0000 勿忘修改数组大小，然后修改 Main_Settings 中的子节点数目！!! | ![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240508/222746947-1.png)![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240508/222828009-1.png) ![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240508/231656236-1.png) |
-| 3. 新增两个节点函数 | 在 "菜单节点函数" 处定义你的函数。第一个节点函数在进入 Brightness 时调用（记为 Func_Brightness_enter ） ，第二个（记为 Func_Brightness_set）在进入 Brightness 后，有其他按键按下时调用。这两个函数共同实现了我们需要的功能：显示亮度调节页面，next 增大亮度，previous 减小亮度，同时在屏幕上显示当前亮度值，enter 或 return 确定更改。 | ![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240508/224229599-1.png) |
-| 4. 进行函数的编写与指针替换 | 注意：两个函数都应为 void func(void) 型，利用全局变量 KEY_num 传递键值。 编写完毕后，将  Func_Brightness_enter 替换到 Settings 数组的函数指针处，将 Func_Brightness_set 替换到 Brightness 定义的函数指针处。  | ![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240508/234441282-1.png)![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240508/234552420-1.png) |
-|5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号|![image](https://gitee.com/dy130810/images_house/raw/master/pic/20240508/234712391-1.png)|
-|6. 编译并烧录 | 可以看到，成功实现屏幕亮度自由调节 |!video[video](/static/uploads/2024/5/13/19916860e374f57a105a3622b3939622.mp4)|
+| 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Data 型菜单，Data 型菜单数组大小需为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置；这里以将 Brightness 选项放在了 Main 的 Settings 下。 |![8b076a242236fea2c00af6ad1bbe0b26.png](https://i3.mjj.rip/2024/06/15/8b076a242236fea2c00af6ad1bbe0b26.png) |
+| 2. 定义新菜单并添加结构体 | 在 Multimenu.c"菜单栏定义" 的 " Menu_2 " 中定义刚刚声明的菜单（即数组），Menu_2 表示其为二级菜单（Main为0级）；并在其父级菜单（这里是 Settings，位于 " Menu_1 " ）中添加结构体，添加结构体时!!#ff0000 勿忘修改数组大小，然后修改 Main_Settings 中的子节点数目！!! | ![bd046261874829df54efb5a0f854a335.png](https://i3.mjj.rip/2024/06/15/bd046261874829df54efb5a0f854a335.png)![2b99af22650b84f2f6c48d73921edc8b.png](https://i3.mjj.rip/2024/06/15/2b99af22650b84f2f6c48d73921edc8b.png)![ffa567ccd3405ab3f498d90b84229d64.png](https://i3.mjj.rip/2024/06/15/ffa567ccd3405ab3f498d90b84229d64.png) |
+| 3. 新增两个节点函数 | 在 "菜单节点函数" 处定义你的函数。第一个节点函数在进入 Brightness 时调用（记为 Func_Brightness_enter ） ，第二个（记为 Func_Brightness_set）在进入 Brightness 后，有其他按键按下时调用。这两个函数共同实现了我们需要的功能：显示亮度调节页面，next 增大亮度，previous 减小亮度，同时在屏幕上显示当前亮度值，enter 或 return 确定更改。 | ![3217884c3b8e31e66a62667e336278a4.png](https://i3.mjj.rip/2024/06/15/3217884c3b8e31e66a62667e336278a4.png)![a838c119b804e8e9319eee7a4caae8b2.png](https://i3.mjj.rip/2024/06/15/a838c119b804e8e9319eee7a4caae8b2.png) |
+| 4. 进行函数的编写与指针替换 | 注意：两个函数都应为 void func(void) 型，利用全局变量 KEY_num 传递键值。 编写完毕后，将  Func_Brightness_enter 替换到 Settings 数组的函数指针处，将 Func_Brightness_set 替换到 Brightness 定义的函数指针处。  | ![c00f347eefc4bc9081c03520391e3136.png](https://i3.mjj.rip/2024/06/15/c00f347eefc4bc9081c03520391e3136.png)![997df42cd00c5352d6454c09bb17ce28.png](https://i3.mjj.rip/2024/06/15/997df42cd00c5352d6454c09bb17ce28.png) |
+|5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号|![ac1c3c06b73533dbd75830a42eb16a68.png](https://i3.mjj.rip/2024/06/15/ac1c3c06b73533dbd75830a42eb16a68.png)|
+|6. 编译并烧录 | 可以看到，成功实现屏幕亮度自由调节 ||
 
 ### 3. 添加 Once 型菜单
 
@@ -295,5 +298,4 @@ KEY_Parent_return()
 - [函数指针多级菜单](https://gitee.com/AdamLoong/Embedded_Menu_Simple) 
 -  [开源单片机多级菜单+OLED动画原理讲解](https://www.bilibili.com/video/BV1Y94y1g7mu)
 - [波特率动](https://led.baud-dance.com/)
-
 
