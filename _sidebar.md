@@ -1,6 +1,5 @@
 - [<font style="color:rgb(54,65,73);font-size:15px">**Home Page**</font>](/README.md)
 - **Blogs**
-  - [博客语法示例](Blogs/语法示例.md)
   - C
     - [C语言系列汇总](Blogs/C/C语言系列汇总.md)
     - [C语言系列 (1)：内存与关键字](Blogs/C/C语言系列%20(1)：内存与关键字.md)
@@ -19,6 +18,7 @@
     - [VScode-Latex 中反向搜索失灵的解决方案](Blogs/FixProblem/VScode-Latex中反向搜索失灵的解决方案.md)
     - [新版 Keil_MDK 中无 Compiler_V5 的解决方案](Blogs/FixProblem/新版keil_MDK中无compiler_v5的解决方案.md)
   - Mixed
+    - [博客语法示例](Blogs\Mixed\语法示例.md)
     - [个人网站搭建](Blogs\Mixed\个人网站搭建.md)
     - [结构体及其指针在树中的应用](Blogs\Mixed\结构体及其指针在树中的应用.md)
     - [手把手教你用PWM实现呼吸灯(标准库)](Blogs\Mixed\手把手教你用PWM实现呼吸灯(标准库).md)
