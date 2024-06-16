@@ -13,13 +13,14 @@ about me:
 - 📫 How to reach me: dingyi233@mails.ucas.ac.cn
 - ⚡ Fun fact: ...
 
-my technology stack:
+My technology stack:
 - Latex
+- Markdown
 - Git
 - Matlab
 - C Programming
 - MCU(STM32)
-- PCB design
+- PCB Design
 
 [![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=YiDingg)](https://github.com/anuraghazra/github-readme-stats)
 
