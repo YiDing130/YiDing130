@@ -382,11 +382,15 @@ revert(*): feat(*): add ADC function - <commit_hash>
 ### 2. Git 下载及安装
 Git下载及命令行环境配置步骤如下：
 
+<div class='center'> 
+
 | 步骤|详细| 图片 |
 | :-: | :-: |:-: |
 | 1. 进入 [Git官网](https://git-scm.com/) 进行下载：  |依次点击：Downloads --> Windows --> 64-bit Git for Windows Setup  |   ![d9681ff93ee1418344576a65d60ef2f3.png](https://i3.mjj.rip/2024/06/16/d9681ff93ee1418344576a65d60ef2f3.png)   |
 | 2. 安装Git |       选择合适的安装路径!!#ff0000 （不要有中文字符）!!       |![d60a16b9466018c94992a7993d74da34.png](https://i3.mjj.rip/2024/06/16/d60a16b9466018c94992a7993d74da34.png) |
 | 3. 检查是否安装成功 | 在桌面右键，点击 Open Git Bash here，输入 `git version` 并回车，正常显示版本信息则表示安装成功 |   ![6aa83a1b35295236bb88728c2b1baf6e.png](https://i3.mjj.rip/2024/06/16/6aa83a1b35295236bb88728c2b1baf6e.png)![7d47e7eca634be2dc6ce2fcbcf42e132.png](https://i3.mjj.rip/2024/06/16/7d47e7eca634be2dc6ce2fcbcf42e132.png)  |
+</div>
+
 ### 3. Github 无法连接
 推荐下载 [Watt Toolkit (原名steam++) -- Github网络加速器](https://steampp.net/)，可完全免费加速 Github、steam 等平台。我个人使用的就是这个（没收广告费）。
 ![430090ad617d540c5bf3236e890fd3c5.png](https://i3.mjj.rip/2024/06/16/430090ad617d540c5bf3236e890fd3c5.png)

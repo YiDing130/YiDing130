@@ -13,7 +13,7 @@
     <!-- 设置浏览器图标 -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-   <!-- Themes -->
+   <!-- docsify主题 -->
    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css"/>
 
    <!-- Custom Styles -->
@@ -22,9 +22,10 @@
       /* --theme-hue: 325; */
       --base-font-size       : 12px;      /* 字体大小 */
       --selection-color      : #b4d6ff;
-      /* --theme-color   : purple; */
+      /* --theme-color   : rgb(250, 4, 4); */
     }
    </style>
+
    <!-- div class="center"支持 -->
    <style>
         .center 
@@ -50,48 +51,49 @@
     <!-- <div id="gitalk-container"></div> -->
     <script>
         window.$docsify = {
+
+            /* docsify设置 */
             // 网站左侧边栏名称
             name: "<font style='color:black;font-size:28px;' face='华文彩云'>⭐Yi Ding's Website⭐</font>",
             // 仓库地址，点击右上角的Github章鱼猫头像会跳转到此地址（感觉占地方不美观，所以不要了）
             /* repo: 'https://github.com/YiDingg', */
-            
             // 侧边栏支持，默认加载的是项目根目录下的_sidebar.md文件
             loadSidebar: true,
             // 左侧边栏最大支持渲染的标题层级
             maxLevel: 1,    // 这里设置为0是为了防止与侧边栏折叠插件产生冲突(但好像仍然冲突?)
             // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级
             subMaxLevel: 0,
-            // 导航栏支持，默认加载的是项目根目录下的_navbar.md文件
             // 左侧边栏自动展开深度
             sidebarDisplayLevel: 1,     
             alias: {
                 '/.*/_sidebar.md': '/_sidebar.md',
             },
+            // 导航栏，_navbar.md文件
             loadNavbar: true,
             // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
             coverpage: true,
             // 小屏设备下合并导航栏到侧边栏
             mergeNavbar: true,
             // 在滚动到指定的锚点时，距离页面顶部有一定空间
-
             topMargin: 90,     
             // 自定义notfound页面   
             notFoundPage: 'my404.md',    
             // 只在访问主页时加载封面      
             onlyCover: false,   
-            // 主题颜色     
+            // 超链接、左右侧边栏的选中颜色
             themeColor: '#3F51B5', 
-            // 侧边栏网页Logo        
-            //logo: 'logo.jpg',        
+            // 侧边栏网页Logo(logo和name只能设置一个)        
+            /* logo: "static\\assets\\ProfilePhoto.jpg  width=30%", */        
             // 切换页面后自动跳转到页面顶部。 
-            auto2top: true,            
-            
+            auto2top: true,  
+
             /* 代码块复制 */
             copyCode: {
                 buttonText: 'Copy to clipboard',
                 errorText: 'Error',
                 successText: 'Copied',
             },
+
             /* 搜索 */
             search: {
                 maxAge: 86400000,// 过期时间，单位毫秒，默认一天
@@ -203,10 +205,21 @@
             hideCode: {
                 scroll: true, // Enable scrolling
                 height: 250 // Max height
-            }
+            },
+
+            /* 幻灯片 */
+/*             pagination: {
+                previousText: '上一章节',
+                // or
+                nextText: {
+                '/en/': 'NEXT',
+                '/': '下一章节'
+                },
+                crossChapter: true,
+                crossChapterText: true,
+            }, */
             
         }
-        
     </script>
     <!-- docsify的js依赖 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
@@ -312,7 +325,9 @@
     <script src="//cdn.jsdelivr.net/npm/docsify-katex@latest/dist/docsify-katex.js"></script>
     <!-- 代码块折叠 -->
     <script src="https://cdn.jsdelivr.net/npm/docsify-hide-code/dist/docsify-hide-code.min.js"></script>
-
+    <!-- 插入slides(不行) -->
+<!--     <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="//unpkg.com/docsify-slides/dist/docsify-slides.min.js"></script> -->
 </body>
 
 </html>

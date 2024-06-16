@@ -35,6 +35,8 @@ HAL_StatusTypeDef HAL_I2C_Master_Seq_Receive_DMA(I2C_HandleTypeDef *hi2c, uint16
 
 下面是它们的对应关系和作用，从机可以是OLED屏幕，也可以是单片机或其他各种设备：  
 
+<div class='center'> 
+
 | IIC (普通模式，即阻塞模式) | IIC (DMA模式) | 作用 |
 | :-----: | :---------: | :---------: |
 | HAL_I2C_Mem_Write() | HAL_I2C_Mem_Write_DMA() | 主机（单片机）在从机（OLED）寄存器指定位置写入数据 |
@@ -43,6 +45,7 @@ HAL_StatusTypeDef HAL_I2C_Master_Seq_Receive_DMA(I2C_HandleTypeDef *hi2c, uint16
 |HAL_I2C_Master_Receive | HAL_I2C_Master_Receive_DMA() | 主机接受从机发来的数据 |
 |无| HAL_I2C_Master_Seq_Transmit_DMA() | 主机用连续模式向从机发送数据（发送一次数据完毕后，立刻开启下一次发送） |
 |无| HAL_I2C_Master_Seq_Receive_DMA() | 主机用连续模式接收从机发来的数据（接收一次数据完毕后，立刻开启下一次接收） |
+</div>
 
 ### 实例：IIC_DMA控制OLED
 

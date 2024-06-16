@@ -241,6 +241,8 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 
 常用命令简写表 ：
 
+<div class='center'> 
+
 | 简写 | 全拼 |
 | ------ | ------ |
 | `--gl` | `--global`|
@@ -254,3 +256,5 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 | `-r`| `--remote` |
 | `-u` | `--set-upstream` |
 | `-s` | `--short` |
+
+</div>
