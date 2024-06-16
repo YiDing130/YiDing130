@@ -1,9 +1,9 @@
 # STM32系列 (1)：Keil Debug 功能使用 
 
 ## 前言
->本节为《📕STM32系列 (1)：Keil Debug 功能使用》
 本节目标：利用 Keil_MDK 进行软件Debug，如设置断点、查看寄存器值、查看引脚逻辑电平、设置按键功能等。
-系列汇总详见地址：[《📕STM32系列汇总》](https://www.writebug.com/article/a58f9888-1cba-11ef-8be7-0242c0a84016) 
+
+> 系列汇总详见地址：[《📕STM32系列汇总》](Blogs\STM32\STM32系列汇总.md) 
 
 ## 一、Keil 软件设置
 官方对 Keil Debug 功能的说明详见：[官方 Keil Debug 文档](https://developer.arm.com/documentation/101407/0540/Dialogs/Project/Options/Debug?lang=en) 。下面是实际的一些操作：

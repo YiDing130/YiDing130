@@ -5,10 +5,13 @@
 
 本文介绍了项目目前成果及其实现原理，提供了源代码下载渠道，以供学习参考。
 
+<div class='center'>
+
 | 相关链接 |
 | :------: |
-| 项目源码下载地址：[MuMeStar (MutipleMenu_Star for OLED) ](https://www.writebug.com/code/74f70a1e-1c04-11ef-a772-0242c0a81018)  |
-|代码移植方法、详细扩展教程见地址：[📚 MuMeStar (MutipleMenu_Star for OLED) 详解](https://www.writebug.com/article/2b4ea580-1bfe-11ef-a772-0242c0a81018) |
+| 源码下载(GitHub)：[MuMeStar](https://github.com/YiDingg/MuMeStar)  |
+|代码移植方法、详细扩展教程：[MuMeStar (Mutiple Menu Star for OLED) 详解](https://yidingg.github.io/YiDingg/#/Projects/MuMeStar%20(Mutiple%20Menu%20Star%20for%20OLED)%20%E8%AF%A6%E8%A7%A3) |
+</div>
 
 由于个人时间、精力和水平有限，项目难免存在不足，望读者不吝指正。
 
@@ -26,6 +29,8 @@
 -   菜单默认添加了小恐龙游戏，如果需要节省内存空间，只需在 Mutimenu.h 中取消小恐龙游戏的宏定义。
 -   
 
+<div class='center'>
+
 | 步骤 |详细 | 图片 |
 | :------: | :------: | :-:|
 | 1. 新建工程并配置基本参数 | 在 CubeMX 中新建一个工程，依次配置：RCC为外部高速时钟，SYS为 SD Debug，调整项目路径、名称，代码生成设置等 | 无 |
@@ -37,22 +42,27 @@
 |7. 添加项目文件| 将下载好的六个文件（MutiMenu.c，MutiMenu.h，Mutimenu_Data.h，OLEDSD.c，OLEDSD.h，OLEDSD_Font.h）复制到项目目录下的inc文件夹（.h文件放这里）和src文件夹（.c文件放这里）|![9f5cece7d5316f9dd2a9abeae19e24b0.png](https://i3.mjj.rip/2024/06/15/9f5cece7d5316f9dd2a9abeae19e24b0.png)![5e5603f2d25c22a7d13911be6169156a.png](https://i3.mjj.rip/2024/06/15/5e5603f2d25c22a7d13911be6169156a.png) |
 |8. 修改main.c| 在main.c中 #include "MutiMenu.h"，并在while(1)循环中使用函数 Menu_Handler() | ![9b5a30d0cd85a5dd83d91e35efa68478.png](https://i3.mjj.rip/2024/06/15/9b5a30d0cd85a5dd83d91e35efa68478.png)![e60a496447f9bd057350b14344d1b257.png](https://i3.mjj.rip/2024/06/15/e60a496447f9bd057350b14344d1b257.png) |
 |9. 移植完成| 菜单移植完成，编译并下载，连接好硬件部分，可以看到菜单正常显示 | ![aa86fddb5f505dcbb7a4ad56b8b33659.png](https://i3.mjj.rip/2024/06/15/aa86fddb5f505dcbb7a4ad56b8b33659.png) |
+</div>
 
 
-
-## 三、如何自由扩展菜单
-### 1. 添加 Parent 型菜单
+## 三、自由扩展菜单
+### 1. 添加 Parent 菜单
 目标：在某个 Parent 型菜单下，添加一个 Parent 型菜单。下面以添加 "游戏" 选项为例。
+
+<div class='center'>
 
 | 步骤 | 详解 | 图片 |
 | :------: | :------: | :------: |
 | 1. 声明新菜单  | 在 Multimenu.c 的 "菜单栏定义" 中声明需要添加的 Parent 型菜单，Parent 型菜单数组大小即为子菜单数目。这里我们仅在其下添加一个 "Dinosaur" 选项，因此 Parent 型菜单数组大小为1。另外，建议数组名字根据级别依次往下连接，避免混淆位置，这里以将 Game 选项放在了 Main 下。 |![abcdef4bf24ff91c1659ba0847e28f9e.png](https://i3.mjj.rip/2024/06/15/abcdef4bf24ff91c1659ba0847e28f9e.png) |
 | 2. 定义新菜单并添加结构体 | 在 main.c 中的 Main 菜单下加入 Game 菜单（!!#ff0000 子节点函数填写 Draw_Menu!!），并在 "Menu_1" 下方添加 Game 菜单的定义，Menu_1 表示其为一级菜单（Main为0级），然后!!#ff0000 修改Main菜单数组大小!!（在宏定义处修改） | ![51540e3356494fab57ca63d4e1500189.png](https://i3.mjj.rip/2024/06/15/51540e3356494fab57ca63d4e1500189.png)![4cb635503e02cb66d316ca4967678cef.png](https://i3.mjj.rip/2024/06/15/4cb635503e02cb66d316ca4967678cef.png) |
 |3. 编译并下载 | 可以看到，成功实现菜单的添加 | 无 |
+</div>
 
-### 2. 添加 Data 型菜单
+### 2. 添加 Data 菜单
 
 目标：在某个 Parent 型菜单下，添加一个 Data 型菜单。下面以添加 "亮度设置" 选项为例。
+
+<div class='center'>
 
 | 步骤 | 详解 | 图片 |
 | :------: | :------: | :------: |
@@ -63,7 +73,9 @@
 |5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号|![ac1c3c06b73533dbd75830a42eb16a68.png](https://i3.mjj.rip/2024/06/15/ac1c3c06b73533dbd75830a42eb16a68.png)|
 |6. 编译并烧录 | 可以看到，成功实现屏幕亮度自由调节 |![image-20240616011235331](C:\Users\13081\AppData\Roaming\Typora\typora-user-images\image-20240616011235331.png)|
 
-### 3. 添加 Once 型菜单
+</div>
+
+### 3. 添加 Once 菜单
 
 目标：在某个 Parent 型菜单下，添加一个 Once 型菜单。下面以添加在 "Hello" 下的 "Sayhello" 选项为例。
 
@@ -76,7 +88,7 @@
 |5. 在 Multimenu.h 中声明函数| 在 "自定义菜单节点函数声明" 处进行声明，注意不要忘了分号|![0d1b0ad15dea38421eac0ca1f302c31c.png](https://i3.mjj.rip/2024/06/15/0d1b0ad15dea38421eac0ca1f302c31c.png)|
 |6. 编译并烧录 | 可以看到，成功实现 Sayhello 功能 | ![1c71a0c981deafb0c3ec037ef567563a.jpeg](https://i3.mjj.rip/2024/06/15/1c71a0c981deafb0c3ec037ef567563a.jpeg) |
 
-### 4. 添加 Loop 型菜单
+### 4. 添加 Loop 菜单
 注：Loop 型菜单的循环由主程序中的总循环提供，也即 main.c 中的 while(1) 循环。因此，在编写下文的 Loop_run 型函数时，只需假设
 
 目标：在某个 Parent 型菜单下，添加一个 Loop 型菜单。下面以添加在 "Hello" 下的 "Smile" 选项为例。
@@ -92,7 +104,7 @@
 
 ## 四、原理详解
 
-### 1. 菜单底层数据结构：
+### 1. 底层数据结构
 > 此部分需要结构体、结构体指针、函数指针、结构体递归、多叉树、状态机等知识基础。
 
 菜单的常见结构类型有链表（序号索引）、树（父子索引）等，本菜单采用多叉树结构实现。
@@ -186,7 +198,7 @@ const Menu_typedef Main_Hello_Smile[1] = {{"Smile",Main_Hello,NULL,0, 0}};
 /* ------上面是菜单栏定义 ------ */
 ```
 
-### 2. 无延迟按键：
+### 2. 无延迟按键
 在 Version 3.0 之前（不包括V3.0），我们利用 EXIT IT (外部中断) 机制，实现按键的无延迟获取。在按键按下瞬间，系统调用 HAL_GPIO_EXTI_Callback() 中断回调函数执行按键总控，并根据键值处理相关事件，在事件处理完毕后中断结束，回到主程序。这样做的好处除了按键无延迟，还能保证相关事件不会和主程序起冲突，主程序中可以编写任意其它代码。
 
 例如，假设某一按键被按下，触发外部中断：

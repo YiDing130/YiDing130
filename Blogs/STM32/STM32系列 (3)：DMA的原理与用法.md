@@ -2,7 +2,8 @@
 
 ## 前言
 本节目标：了解DMA的原理，并利用DMA协助数据传输（如IIC和SPI）。  
->系列汇总详见地址：[📕STM32系列汇总](Blogs/STM32/STM32系列汇总.md)
+
+>系列汇总详见地址：[📕STM32系列汇总](Blogs\STM32\STM32系列汇总.md)
 
 ## 一、DMA原理及特性
 对于STM32F103x系列，官方对其DMA的说明在 [STM32F10x 参考手册(中文版).pdf](/static/uploads/2024/5/30/764d9b9b210b4c052c24837bf24e0398.pdf) 中的Page.142~Page.154。下面是部分截图：
