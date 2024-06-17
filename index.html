@@ -72,8 +72,8 @@
             alias: {
                 '/.*/_sidebar.md': '/_sidebar.md',
             },
-            // 导航栏，_navbar.md文件
-            loadNavbar: true,
+            // 导航栏, _navbar.md文件, 手机端导航栏会收缩到侧边栏形成冲突, 因此不开启
+            loadNavbar: false,
             // 封面支持，默认加载的是项目根目录下的_coverpage.md文件
             coverpage: true,
             // 小屏设备下合并导航栏到侧边栏
