@@ -1,6 +1,6 @@
-- [<font style="color:rgb(54,65,73);font-size:15px">🏠**Home Page**</font>](/README.md)
+- [<font style="color:rgb(54,65,73);font-size:15px">🏠 **Home Page**</font>](/README.md)
 - 
-- 📓**Blogs**
+- 📓 **Blogs**
   - C
     - [C语言系列汇总](Blogs/C/C语言系列汇总.md)
     - [C语言系列 (1)：内存与关键字](Blogs/C/C语言系列%20(1)：内存与关键字.md)
@@ -23,7 +23,7 @@
     - [个人网站搭建](Blogs\Mixed\个人网站搭建.md)
     - [结构体及其指针在树中的应用](Blogs\Mixed\结构体及其指针在树中的应用.md)
     - [手把手教你用PWM实现呼吸灯(标准库)](Blogs\Mixed\手把手教你用PWM实现呼吸灯(标准库).md)
-- 📖**Notes**
+- 📖 **Notes**
   - Math
     - [Linear Algebra 1]()
     - [Linear Algebra 2](Notes\Math\Linear%20Algebra%202%20notes.md)
@@ -31,6 +31,6 @@
     - [Mechanics]()
     - [Thermodynamics]()
 
-- 📝**Projects**
+- 📝 **Projects**
   - [MuMeStar (Mutiple Menu Star for OLED)](Projects\MuMeStar%20(Mutiple%20Menu%20Star%20for%20OLED)%20详解.md)
   - [MinSyBo (Minimum System Board of STM32)](Projects\MinSyBo%20(Minimum%20System%20Board%20of%20STM32)%20详解.md)
